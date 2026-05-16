@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gelasio", serif;
+}
+
+body {
+    background: url(../img/milk-bg.jpg);
+    background-size: cover;
+}
+
+
+.table {
+    /* border: 1px solid green; */
+    width: 90vh;
+    /* margin-top: 30px; */
+}
+
+.left-content,
+.right-t {
+    /* border: 1px solid; */
+    width: 100%;
+
+}
+
+.left-content {
+   overflow-x:hidden;
+   overflow-y:scroll ;
+}
+
+
+.expense-content {
+    /* border: 1px solid; */
+    display: flex;
+    gap: 10px;
+    height: 50vh;
+    margin-top: 15px;
+    /* justify-content: space-around; */
+}
+
+.main-content {
+    border-radius: 25px;
+    padding: 25px;
+    margin-top: 15px;
+}
+
+
+/* TOPBAR IMPROVE */
+
+.topbar {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 18px 25px !important;
+    margin: 5px 0;
+    border: 1px solid #ffffff33;
+}
+
+
+/* CLOCK */
+
+#clock {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+}
+
+
+/* ADMIN */
+
+.admin-name {
+    color: white;
+    font-size: 18px;
+}
+
+/* btn clr */
+.dark {
+    background: #111111b4;
+    color: white;
+}
+
+.bg-dark {
+    background-color: white;
+    color: #111;
+}
+
+/* DASHBOARD TITLE */
+
+.main-content h2 {
+    color: white;
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+
+/* CARD SHINE */
+
+.card-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: 0.8s;
+}
+
+.card-box:hover::after {
+    left: 130%;
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px) {
+
+    .sidebar {
+        height: auto;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .card-box h2 {
+        font-size: 30px;
+    }
+}
+
+/* -------------------------------------------------- */
+
+
+.sidebar {
+    height: 80vh;
+    background: linear-gradient(180deg, #1ef879, #2cc6d1, rgba(35, 126, 230, 0.692));
+    padding-top: 20px;
+    box-shadow: 5px 0 20px #0000001a;
+    border-radius: 10px;
+}
+
+.sidebar h3 {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: white;
+    margin: 8px 0;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 17px;
+    transition: 0.4s;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transform: translateX(8px);
+    color: white !important;
+}
+
+h2 {
+    font-weight: 700;
+    color: #222;
+}
+
+.card-box {
+    padding: 20px;
+    border-radius: 22px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    transition: 0.4s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-box::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    top: -50%;
+    left: -50%;
+    transform: rotate(45deg);
+}
+
+.card-box:hover {
+    transform: translateY(-10px) scale(1.03);
+}
+
+.card-box h5 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-box h2 {
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+}
+
+.bg-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+.bg-success {
+    background: linear-gradient(135deg, #11998e, #38ef7d) !important;
+}
+
+.bg-warning {
+    background: linear-gradient(135deg, #f7971e, #ffd200) !important;
+}
+
+.bg-info {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5) !important;
+}
+
+.bg-danger {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
+}
+
+.bg-dark {
+    background: linear-gradient(135deg, #232526, #414345) !important;
+}
+
+/* ----------------------------- */
+
+.cow-form {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.form-control {
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.btn-success {
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+/* -----------------Card */
+
+.cow-card {
+    border-radius: 15px;
+    transition: 0.3s;
+    background: #fff;
+}
+
+.cow-card:hover {
+    transform: translateY(-5px);
+}
+
+.cow-card p {
+    margin-bottom: 8px;
+    font-size: 16px;
+}

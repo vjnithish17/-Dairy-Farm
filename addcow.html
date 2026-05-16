@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cow</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <!-- Top Navbar -->
+        <div class="topbar d-flex justify-content-between align-items-center p-3 ">
+            <h4 class="m-0">🐄 Dairy Farm Dashboard</h4>
+            <div>
+                <h5 id="clock" class="m-0"></h5>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <span class="admin-name" id="admin">👤 Admin</span>
+                <button class="btn btn-light" id="modeBtn">
+                    🌙 Dark
+                </button>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-2 sidebar p-3">
+                <!-- <h3 class="text-center text-white mb-4">🐄 Dairy Farm</h3> -->
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="./dashboard.html" class="nav-link active">Dashboard</a></li>
+                    <li class="nav-item"><a href="./addcow.html" class="nav-link">Add Cow</a></li>
+                    <li class="nav-item"><a href="./milkentery.html" class="nav-link">Milk Entry</a></li>
+                    <li class="nav-item"><a href="./expense.html" class="nav-link">Expense</a></li>
+                    <li class="nav-item"><a href="./reports.html" class="nav-link">Reports</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-10 p-4">
+
+                <h2>Add New Cow</h2>
+                <form id="cowrest">
+                    <div class="cow-form p-4 mt-4">
+                        <div class="row g-3">
+
+                            <div class="col-md-4">
+                                <input type="text" id="cowName" class="form-control" placeholder="Cow Name">
+                            </div>
+
+                            <div class="col-md-4">
+                                <select id="cowType" class="form-control">
+                                    <option value="">Select Type</option>
+                                    <option>Jersey</option>
+                                    <option> HF</option>
+                                    <option> Kangeyam</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <input type="number" id="age" class="form-control" placeholder="Age">
+                            </div>
+
+                            <div class="col-md-4">
+                                <input type="number" id="milkCapacity" class="form-control" placeholder="Milk Capacity">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="url" id="cowimg" class="form-control" placeholder="">
+                            </div>
+
+                            <button type="button" class="btn btn-success w-25 ms-3" onclick="addCow()">
+                                Add Cow
+                            </button>
+
+                        </div>
+
+                    </div>
+                </form>
+                <div class="container">
+                    <div class="row mt-4" id="cowTable"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Add Cow ---------------------------------------------------------------
+        let cows = JSON.parse(localStorage.getItem("cows")) || [];
+        let addCow = () => {
+            let cowName = document.getElementById("cowName")
+            let cowType = document.getElementById("cowType")
+            let age = document.getElementById("age")
+            let milkCapacity = document.getElementById("milkCapacity")
+            let cowimg = document.getElementById("cowimg")
+            let image = "";
+
+            if (cowName.value == "") {
+                alert("Add cowName")
+                return
+            } else if (cowType.value == "") {
+                alert("Add cowType")
+                return
+            } else if (age.value == "") {
+                alert("Add age")
+                return
+            } else if (milkCapacity.value == "") {
+                alert("Add milkCapacity")
+                return
+            }
+
+            // if (cowType.value == "Jersey") {
+            //     image = "./img/hf.jpg";
+            // }
+            // else if (cowType.value == "HF") {
+            //     image = "./img/download (1).jpg";
+            // }
+            // else {
+            //     image = "./img/download (1).jpg";
+            // }
+
+            let data = {
+                cowName: cowName.value,
+                cowType: cowType.value,
+                age: age.value,
+                milkCapacity: milkCapacity.value,
+                img: cowimg.value
+            };
+
+            cows.push(data);
+            console.log(cows);
+            localStorage.setItem("cows", JSON.stringify(cows));
+            document.getElementById("cowrest").reset();
+            displaycows()
+        }
+        // Always Show content
+
+        let displaycows = () => {
+
+            let table = document.getElementById("cowTable");
+            if (!table) return;
+            // chatgpt use--if (!table) return;
+            table.innerHTML = "";
+
+            cows.forEach((ele) => {
+
+                table.innerHTML += `
+        <div class="col-md-3 mb-4">
+            <div class="card shadow border-0 cow-card">
+                <img src="${ele.img}"  class="card-img-top cow-img" alt="cow image">
+                <div class="card-body">
+                    <p class="textcenter"><strong>Name :</strong> ${ele.cowName}</p>
+                    <p><strong>cowType :</strong> ${ele.cowType}</p>
+                    <p><strong>Age :</strong> ${ele.age} Years</p>
+                    <p><strong>Milk :</strong> ${ele.milkCapacity}c</p>
+                </div>
+            </div>
+        </div>  `
+
+            });
+        };
+        displaycows()
+        // console.log(JSON.parse(localStorage.getItem("cows")));
+
+    </script>
+
+</body>
+
+</html>

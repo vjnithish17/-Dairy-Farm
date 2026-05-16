@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+
+    <div class="form-container">
+
+        <form action="" onsubmit="loginform(event)">
+            <h1>Login</h1>
+
+            <!-- <div class="form-controlx">
+                <label for="name">Enter the name</label>
+                <input type="text" id="name" placeholder="Ex.nihti">
+                <span id="nameerr"></span>
+            </div> -->
+            <div class="form-controlx">
+                <label for="">Enter the Email</label>
+                <input type="email" id="emailid" placeholder="xxyy@gmail.com">
+                <span id="emailerr" class="error"></span>
+            </div>
+
+            <div class="form-controlx">
+                <label for="">Enter the password</label>
+                <input type="password" id="pass" placeholder=".........">
+                <span id="passerr" class="error"></span>
+            </div>
+
+            <div class="form-controlx">
+                <button type="submit">Submit</button>
+            </div>
+            <div class="foot">
+                <h5>Don't have an account? <a href="./formreg.html">Register here</a></h5>
+                <h5 ><a href="./admin.html" class="login">Admin</a></h5>
+             </div>
+                 
+           
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let loginform = (event) => {
+
+            event.preventDefault();
+
+            //  let name = document.getElementById("name")
+            // let nameerr = document.getElementById("nameerr")
+
+            let emailid = document.getElementById("emailid")
+            let pass = document.getElementById("pass")
+
+            let emailerr = document.getElementById("emailerr")
+            let passerr = document.getElementById("passerr")
+
+
+            let emailCheck = false;
+            let passCheck = false;
+            // let nameCheck = false
+
+            // if (name.value == "") {
+            //     nameerr.innerHTML = "Name is empty"
+            //     nameCheck = false
+            // } else if (name.value.length < 3) {
+            //     nameerr.innerHTML = "name is min 3 letters"
+            //     nameCheck = false
+            // }
+            // else {
+            //     nameerr.innerHTML = ""
+            //     nameCheck = true
+            // }
+
+            let emailpatter = /^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.+-]+\.[a-zA-Z]{2,}$/
+
+            if (emailid.value == "") {
+                emailerr.innerHTML = "Email is  Empty"
+                emailCheck = false;
+            } else if (!emailpatter.test(emailid.value)) {
+                emailerr.innerHTML = "Invalid email id"
+                emailCheck = false;
+            } else {
+                emailerr.innerHTML = ""
+                emailCheck = true;
+            }
+
+
+            if (pass.value == "") {
+                passerr.innerHTML = "Password is  Empty"
+                passCheck = false;
+            } else if (pass.value.length < 6) {
+                passerr.innerHTML = "Password should be  min 6 charactors"
+                passCheck = false;
+            } else {
+                passerr.innerHTML = ""
+                passCheck = true;
+            }
+
+            // debugger
+
+            if (emailCheck && passCheck) {
+
+                let userslist = JSON.parse(localStorage.getItem("userslist")) || []
+
+
+                let existuser = userslist.filter((ele) => ele.mail == emailid.value && ele.password == pass.value)
+                // console.log(existuser);
+                console.log(userslist);
+
+
+                if (existuser.length > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "login success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    setTimeout(() => {
+                        window.location.href = "dashboard.html"
+                    }, 2000);
+
+                } else {
+
+                    alert("You are not existing user, please register")
+
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

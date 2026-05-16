@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+
+
+    <div class="form-container">
+
+        <form action="" onsubmit="loginform(event)">
+            <h1>Admin</h1>
+
+            <div class="form-controlx">
+                <label for="name">Enter the name</label>
+                <input type="text" id="name" placeholder="Your Name">
+                <span id="nameerr"></span>
+            </div>
+
+            <div class="form-controlx">
+                <label for="">Enter the password</label>
+                <input type="password" id="pass" placeholder=".........">
+                <span id="passerr" class="error"></span>
+            </div>
+
+            <div class="form-controlx">
+                <button type="submit">Submit</button>
+            </div>
+            <div class="foot">
+                <h5><a href="./index.html" class="login">Login</a></h5>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let loginform = (event) => {
+
+            event.preventDefault();
+
+            const Name = "Nithish"
+            const password = "Nithish23@$"
+
+            let name = document.getElementById("name")
+            let pass = document.getElementById("pass")
+
+            let nameerr = document.getElementById("nameerr")
+            let passerr = document.getElementById("passerr")
+
+            if (name.value == "") {
+                nameerr.innerHTML = "Name is  Empty"
+            } else {
+                nameerr.innerHTML = ""
+            }
+
+            if (pass.value == "") {
+               passerr.innerHTML = "Password is  Empty"
+            } else {
+                passerr.innerHTML = ""
+            }
+
+            if (Name === name.value) {
+                if (password === pass.value) {
+                    console.log("Login successfully");
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "login success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    setTimeout(() => {
+                        window.location.href = "dashboard.html"
+                    }, 2000);
+                }
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Wrong Password"
+                    });
+                }
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Wrong Name"
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
