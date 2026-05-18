@@ -10,7 +10,21 @@
 
 
 
+let adminElement = document.getElementById("admin")
+admin.addEventListener("click", () => {
+    let userslist = JSON.parse(localStorage.getItem("userslist"))
+    let admin = JSON.parse(localStorage.getItem("Admin"))
 
+    admin.forEach((element) => {
+        // console.log(element.Name);
+
+        adminElement.innerHTML = `👤 ${element.Name}`;
+
+    });
+
+
+    console.log(admin);
+})
 
 // Clock----------------------------------------
 let updateTime = () => {

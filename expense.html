@@ -83,6 +83,7 @@
                         <table class="table">
                             <thead class="table-dark">
                                 <tr class="expent">
+                                     <th>Date</th>
                                     <th>Expense Type</th>
                                     <th>Amount</th>
                                 </tr>
@@ -124,7 +125,8 @@
             }
             let expenses = {
                 type,
-                amount
+                amount,
+                 date: new Date().toISOString().split("T")[0]
             }
             totalex.push(expenses)
             localStorage.setItem("expenseamount", JSON.stringify(totalex));
@@ -144,6 +146,7 @@
 
                 table.innerHTML += `
         <tr>
+            <td>${exp.date}</td>
             <td>${exp.type}</td>
             <td>₹${exp.amount}</td>
         </tr>`;

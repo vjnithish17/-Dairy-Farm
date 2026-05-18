@@ -235,24 +235,8 @@ h2 {
     background: linear-gradient(135deg, #232526, #414345) !important;
 }
 
-/* ----------------------------- */
 
-.cow-form {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
 
-.form-control {
-    padding: 14px;
-    border-radius: 12px;
-}
-
-.btn-success {
-    padding: 14px;
-    border-radius: 12px;
-    font-weight: bold;
-}
 
 /* -----------------Card */
 
@@ -269,4 +253,30 @@ h2 {
 .cow-card p {
     margin-bottom: 8px;
     font-size: 16px;
+}
+/* milkentry */
+.cow-form {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 70%;
+    /* height: 47vh; */
+    display: flex;
+    flex-direction: column  ;
+}
+
+.form-control {
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.btn-success {
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.flex{
+    /* border: 2px solid red; */
+    display: flex;
 }

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dairy Form</title>
-        <link rel="icon" href="https://cdn.vectorstock.com/i/500p/75/29/holstein-cow-logo-farm-branding-vector-59997529.jpg">
+    <link rel="icon"
+        href="https://cdn.vectorstock.com/i/500p/75/29/holstein-cow-logo-farm-branding-vector-59997529.jpg">
     <link rel="stylesheet" href="./css/login.css">
 </head>
 
@@ -41,12 +42,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        let Admin=[]
         let loginform = (event) => {
 
             event.preventDefault();
 
             const Name = "Nithish"
             const password = "Nithish23@$"
+            let admin = {
+                Name,
+                password
+            }
+            Admin=[admin]
+            localStorage.setItem("Admin", JSON.stringify(Admin))
+
+            console.log(Admin);
 
             let name = document.getElementById("name")
             let pass = document.getElementById("pass")
@@ -61,7 +71,7 @@
             }
 
             if (pass.value == "") {
-               passerr.innerHTML = "Password is  Empty"
+                passerr.innerHTML = "Password is  Empty"
             } else {
                 passerr.innerHTML = ""
             }
