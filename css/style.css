@@ -15,7 +15,7 @@ body {
 
 .table {
     /* border: 1px solid green; */
-    width: 90vh;
+    width: 150vh;
     /* margin-top: 30px; */
 }
 
@@ -115,6 +115,37 @@ body {
     left: 130%;
 }
 
+.cow-img{
+    width: 100%;
+    height: 100px;
+    object-fit:contain;
+    border-radius: 10px;
+}
+.green td{
+    /* background-color: green; */
+    color: green;
+      border-top-left-radius: 10PX;
+    border-bottom-right-radius: 10px;
+}
+.red td{
+    /* background-color: red; */
+    color: red;
+      border-top-left-radius: 10PX;
+    border-bottom-right-radius: 10px;
+}
+.yellow td{
+    background-color:gray;
+    color:yellow;
+   
+    border-top-left-radius: 10PX;
+    border-bottom-right-radius: 10px;
+}
+.burble td{
+    background-color:#fffdfd;
+    color:#d400ff;
+      border-top-left-radius: 10PX;
+    border-bottom-right-radius: 10px;
+}
 
 /* MOBILE */
 

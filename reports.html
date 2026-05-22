@@ -53,10 +53,11 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>Date</th>
-                                <th> Expense</th>
+                                <th>Cow/Type</th>
                                 <th>Milk</th>
+                                <th>Milk Rate </th>
                                 <th>Income</th>
-                                <th>Profit</th>
+                                <th> Expense</th>
                             </tr>
                         </thead>
                         <tbody id="expenseReportTable"></tbody>
@@ -69,18 +70,23 @@
 
     <script>
         function report() {
+            let totalincome = 0
+            let expense = 0
+            let totalexpense=0
             let reportExpense = document.getElementById("expenseReportTable");
             let totalex = JSON.parse(localStorage.getItem("expenseamount"));
             let milkEntries = JSON.parse(localStorage.getItem("Milkentry"));
 
             totalex.forEach(exp => {
+                expense += Number(exp.amount)
                 reportExpense.innerHTML += `
             <tr>
                 <td>${exp.date}</td>
-                <td>₹${exp.amount}</td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+                <td>${exp.type}</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>₹${exp.amount} </td>
             </tr>
         `;
             });
@@ -89,16 +95,55 @@
             console.log(totalex);
             // reportExpense.innerHTML = "₹" + totalex;
             milkEntries.forEach(exp => {
+
+                let income = Number(exp.total) * Number(exp.rate)
+                
+                totalincome += income
                 reportExpense.innerHTML += `
             <tr>
                 <td>${exp.date}</td>
-                <td>₹${exp.amount}</td>
-                 <td><b>${exp.total} L</b></td>
-                  <td> </td>
-                <td> </td>
+                <td>${exp.name}</td>
+                <td><b>${exp.total} L</b></td>
+                <td><b>₹${exp.rate}</b></td>
+                <td><b>₹${income} </b></td>
+                <td>- </td>
             </tr>
         `;
             });
+            let profit = totalincome - expense;
+            // Total Income
+            reportExpense.innerHTML += `
+            <tr class="yellow mt-4">
+             <td colspan="3"><b>Total Income</b></td>
+            <td><b>₹${totalincome}</b></td>
+            
+             </tr>
+           `;
+             reportExpense.innerHTML += `
+             <tr class="burble">
+            <td colspan="3"><b>Total Expense</b></td>
+            <td><b>₹${expense}</b></td>
+           
+            </tr>
+            `;
+            reportExpense.innerHTML += `
+             <tr class="green">
+            <td colspan="3"><b>Total Profit</b></td>
+            <td><b>₹${Math.abs(profit)}</b></td>
+            
+            </tr>
+            `;
+            let loss = profit - totalincome
+            reportExpense.innerHTML += `
+             <tr class="red">
+            <td colspan="3"><b>Total Loss</b></td>
+            <td><b>₹${loss}</b></td>
+            
+            </tr>
+            `;
+          
+
+            console.log(loss);
 
 
         }

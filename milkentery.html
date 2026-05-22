@@ -70,8 +70,10 @@
                             <div class="col-md-3">
                                 <input type="date" id="date" class="form-control" placeholder="Evening Milk">
                             </div>
-
-                            <div class="col-md-2">
+                            <div class="col-md-3">
+                                <input type="number" id="rate" class="form-control" placeholder="Milk Rate">
+                            </div>
+                            <div class="col-md-3">
                                 <button type="submit" class="btn btn-success w-100">Add</button>
                             </div>
 
@@ -88,6 +90,8 @@
                                 <th>Morning</th>
                                 <th>Evening</th>
                                 <th>Total</th>
+                                <th>Milk Rate</th>
+                                <th>Income</th>
                             </tr>
                         </thead>
 
@@ -136,12 +140,17 @@
             let morning = (document.getElementById("morning").value);
             let evening = (document.getElementById("evening").value);
             let date = document.getElementById("date").value;
+            let rate = document.getElementById("rate").value;
             let cowerrror = document.getElementById("error")
 
 
-            if (name == "" || morning == "" || evening == "" || date == "") {
+            if (name == "" || morning == "" || evening == "" || date == "" || rate == ``) {
                 alert("Fill all fields");
                 return;
+            }
+            if (Number(rate) <= 35) {
+                alert(" Not valid rate")
+                return
             }
 
             let total = Number(morning) + Number(evening);
@@ -151,7 +160,9 @@
                 morning: morning,
                 evening: evening,
                 date: date,
-                total: total
+                total: total,
+                rate: rate,
+                
             };
             milkEntries.push(Entry)
 
@@ -174,6 +185,7 @@
             let table = document.getElementById("milkTable");
             table.innerHTML = "";
             milkEntries.forEach((milk) => {
+                let income = Number(milk.total) * Number(milk.rate)
                 table.innerHTML += `
                  <tr>
                     <td>${milk.date}</td>
@@ -181,6 +193,8 @@
                   <td>${milk.morning} L</td>
                   <td>${milk.evening} L</td>
                   <td><b>${milk.total} L</b></td>
+                   <td>₹${milk.rate}</td>
+                     <td><b>₹${income} </b></td>
                   </tr>`;
             });
             console.log(table);

@@ -105,24 +105,22 @@
         function loadDashboard() {
 
             let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || []
-
-            let milkrate = 50
             let morningTotal = 0
             let eveningTotal = 0
             let totalMilk = 0
+            let totalincome = 0
 
 
             milkEntries.forEach((milk) => {
                 // console.log(milk);
-
+                let income = Number(milk.total) * Number(milk.rate)
                 morningTotal += Number(milk.morning)
                 eveningTotal += Number(milk.evening)
                 totalMilk += Number(milk.total)
+               totalincome+= income
+               
             })
             // Total Milk × Milk Price------50 L × ₹45 = ₹2250
-            let totalincome = 0
-            totalincome = totalMilk * milkrate
-
             document.getElementById("morningMilk").innerText = morningTotal + " L"
             document.getElementById("eveningMilk").innerText = eveningTotal + " L"
             document.getElementById("totalMilk").innerText = totalMilk + " L"
