@@ -8,28 +8,26 @@
 }
 
 body {
-    background: url(../img/milk-bg.jpg);
-    background-size: cover;
+    /* background: url(../img/milk-bg.jpg);
+    background-size: cover; */
+    background-color: #f1f4f7;
 }
 
 
 .table {
     /* border: 1px solid green; */
-    width: 150vh;
+    width: 100vh;
     /* margin-top: 30px; */
 }
 
 .left-content,
 .right-t {
-    /* border: 1px solid; */
-    width: 100%;
+    /* border: 1px solid red; */
+    width: 80%;
 
 }
 
-.left-content {
-   overflow-x:hidden;
-   overflow-y:scroll ;
-}
+
 
 
 .expense-content {
@@ -51,12 +49,12 @@ body {
 /* TOPBAR IMPROVE */
 
 .topbar {
+    background: linear-gradient(150deg, #26d1fc, #2e5d7d);
+      box-shadow: 0 4px 10px #091ab91a;
+    border-radius: 0 0 20px 20px;
     backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 18px;
-    padding: 18px 25px !important;
+    padding: 11px 25px !important;
     margin: 5px 0;
-    border: 1px solid #ffffff33;
 }
 
 
@@ -78,8 +76,8 @@ body {
 }
 
 /* btn clr */
-.dark {
-    background: #000000e5;
+.dark  {
+    background: #293f46e5;
     color: white;
 }
 
@@ -90,8 +88,8 @@ body {
 
 /* DASHBOARD TITLE */
 
-.main-content h2 {
-    color: white;
+.main- {
+    color: rgb(0, 0, 0);
     font-size: 35px;
     margin-bottom: 25px;
 }
@@ -115,35 +113,39 @@ body {
     left: 130%;
 }
 
-.cow-img{
+.cow-img {
     width: 100%;
     height: 100px;
-    object-fit:contain;
+    object-fit: contain;
     border-radius: 10px;
 }
-.green td{
+
+.green td {
     /* background-color: green; */
     color: green;
-      border-top-left-radius: 10PX;
-    border-bottom-right-radius: 10px;
-}
-.red td{
-    /* background-color: red; */
-    color: red;
-      border-top-left-radius: 10PX;
-    border-bottom-right-radius: 10px;
-}
-.yellow td{
-    background-color:gray;
-    color:yellow;
-   
     border-top-left-radius: 10PX;
     border-bottom-right-radius: 10px;
 }
-.burble td{
-    background-color:#fffdfd;
-    color:#d400ff;
-      border-top-left-radius: 10PX;
+
+.red td {
+    /* background-color: red; */
+    color: red;
+    border-top-left-radius: 10PX;
+    border-bottom-right-radius: 10px;
+}
+
+.yellow td {
+    background-color: gray;
+    color: yellow;
+
+    border-top-left-radius: 10PX;
+    border-bottom-right-radius: 10px;
+}
+
+.burble td {
+    background-color: #fffdfd;
+    color: #d400ff;
+    border-top-left-radius: 10PX;
     border-bottom-right-radius: 10px;
 }
 
@@ -165,6 +167,10 @@ body {
     .card-box h2 {
         font-size: 30px;
     }
+
+    .sidebar {
+        height: 0;
+    }
 }
 
 /* -------------------------------------------------- */
@@ -172,10 +178,10 @@ body {
 
 .sidebar {
     height: 80vh;
-    background: linear-gradient(180deg, #1ef879, #2cc6d1, rgba(35, 126, 230, 0.692));
+    background: linear-gradient(to right, #26d1fc, #2e5d7d);
     padding-top: 20px;
-    box-shadow: 5px 0 20px #0000001a;
-    border-radius: 10px;
+    box-shadow: 0 4px 10px #091ab91a;
+    border-radius: 0 15px 15px 0;
 }
 
 .sidebar h3 {
@@ -193,7 +199,7 @@ body {
 }
 
 .nav-link:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.438);
     backdrop-filter: blur(10px);
     transform: translateX(8px);
     color: white !important;
@@ -272,9 +278,11 @@ h2 {
 /* -----------------Card */
 
 .cow-card {
-    border-radius: 15px;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
     transition: 0.3s;
-    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .cow-card:hover {
@@ -285,6 +293,7 @@ h2 {
     margin-bottom: 8px;
     font-size: 16px;
 }
+
 /* milkentry */
 .cow-form {
     background: white;
@@ -293,7 +302,7 @@ h2 {
     width: 70%;
     /* height: 47vh; */
     display: flex;
-    flex-direction: column  ;
+    flex-direction: column;
 }
 
 .form-control {
@@ -307,7 +316,7 @@ h2 {
     font-weight: bold;
 }
 
-.flex{
+.flex {
     /* border: 2px solid red; */
     display: flex;
 }

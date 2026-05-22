@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <!-- Top Navbar -->
         <div class="topbar d-flex justify-content-between align-items-center p-3 ">
-            <h4 class="m-0">🐄 Dairy Farm Dashboard</h4>
+            <h4 class="m-0"> Dairy Farm </h4>
             <div>
                 <h5 id="clock" class="m-0"></h5>
             </div>
@@ -60,8 +60,9 @@
                                 <th> Expense</th>
                             </tr>
                         </thead>
-                        <tbody id="expenseReportTable"></tbody>
-
+                        <tbody id="expenseReportTable">
+                          
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -72,7 +73,7 @@
         function report() {
             let totalincome = 0
             let expense = 0
-            let totalexpense=0
+            let totalexpense = 0
             let reportExpense = document.getElementById("expenseReportTable");
             let totalex = JSON.parse(localStorage.getItem("expenseamount"));
             let milkEntries = JSON.parse(localStorage.getItem("Milkentry"));
@@ -97,7 +98,7 @@
             milkEntries.forEach(exp => {
 
                 let income = Number(exp.total) * Number(exp.rate)
-                
+
                 totalincome += income
                 reportExpense.innerHTML += `
             <tr>
@@ -110,6 +111,7 @@
             </tr>
         `;
             });
+
             let profit = totalincome - expense;
             // Total Income
             reportExpense.innerHTML += `
@@ -119,7 +121,7 @@
             
              </tr>
            `;
-             reportExpense.innerHTML += `
+            reportExpense.innerHTML += `
              <tr class="burble">
             <td colspan="3"><b>Total Expense</b></td>
             <td><b>₹${expense}</b></td>
@@ -129,7 +131,7 @@
             reportExpense.innerHTML += `
              <tr class="green">
             <td colspan="3"><b>Total Profit</b></td>
-            <td><b>₹${Math.abs(profit)}</b></td>
+            <td><b>₹${profit}</b></td>
             
             </tr>
             `;
@@ -141,7 +143,7 @@
             
             </tr>
             `;
-          
+
 
             console.log(loss);
 

@@ -18,7 +18,7 @@
         <div class="container-fluid">
             <!-- Top Navbar -->
             <div class="topbar d-flex justify-content-between align-items-center p-3 ">
-                <h4 class="m-0">🐄 Dairy Farm Dashboard</h4>
+                <h4 class="m-0"> Dairy Farm</h4>
                 <div>
                     <h5 id="clock" class="m-0"></h5>
                 </div>
@@ -47,7 +47,7 @@
 
                     <h2>Add New Cow</h2>
                     <form id="cowrest">
-                        <div class="cow-form p-4 mt-4">
+                        <div class="cow-form p-4 mt-2">
                             <div class="row g-3">
 
                                 <div class="col-md-4">
@@ -71,7 +71,7 @@
                                     <input type="number" id="milkCapacity" class="form-control" placeholder="Milk Capacity">
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="url" id="cowimg" class="form-control" placeholder="Image URL">
+                                    <input type="url" id="cowimg" class="form-control" placeholder="Image URL (optional)">
                                 </div>
 
                                 <button type="button" class="btn btn-success w-25 ms-3" onclick="addCow()">
@@ -83,7 +83,7 @@
                         </div>
                     </form>
                     <div class="container">
-                        <div class="row mt-4" id="cowTable"> </div>
+                        <div class="row mt-2" id="cowTable"> </div>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                     return
                 } else if (image == "") {
                     image = "https://cdn.vectorstock.com/i/500p/75/29/holstein-cow-logo-farm-branding-vector-59997529.jpg"
-    
+                    return
                 }
 
 

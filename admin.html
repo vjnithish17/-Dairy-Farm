@@ -42,7 +42,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        let Admin=[]
+        let Admin=JSON.parse(localStorage.getItem("Admin"))||[]
         let loginform = (event) => {
 
             event.preventDefault();
