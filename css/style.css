@@ -262,18 +262,19 @@ table {
 
 .dark {
     background: #1f2937;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
-.dark .main-content h2 {
-    color: white;
+.dark canvas,
+.dark  h2 {
+    color:rgb(255, 251, 251);
 }
 
 .dark .cow-form,
 .dark .cow-card,
 .dark .card {
     background: #374151;
-    color: white;
+    color:black;
 }
 
 /* =======================================milk enry====================================== */

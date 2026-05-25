@@ -71,10 +71,12 @@
             let cpassCheck = false;
             // debugger
             if (name.value == "") {
-                nameerr.innerHTML = "Name is empty"
+                nameerr.innerHTML = "Name is required"
+                name.style.border = "2px solid red";
                 nameCheck = false
             } else if (name.value.length < 3) {
-                nameerr.innerHTML = "name is min 3 letters"
+                nameerr.innerHTML = "Name is min 3 letters"
+                name.style.border = "2px solid red";
                 nameCheck = false
             }
             else {
@@ -87,10 +89,12 @@
             let mailpattern = /^[a-zA-Z0-9.-_%+]+@[a-zA-Z0-9.+-]+\.[a-zA-Z]{2,}$/
 
             if (mail.value == "") {
-                mailerr.innerHTML = "MailId is empty"
+                mailerr.innerHTML = "Mail Id is required"
+                mail.style.border = "2px solid red";
                 mailcheck = false
             } else if (!mailpattern.test(mail.value)) {
                 mailerr.innerHTML = "Invaild mail"
+                mailpattern.style.border = "2px solid red";
                 mailcheck = false
             }
             else {
@@ -103,13 +107,16 @@
             let phonePattern = /^[6-9]\d{9}$/
 
             if (ph.value == "") {
-                pherr.innerHTML = "phonenumber is empty"
+                pherr.innerHTML = "phone Number is required"
+                ph.style.border = "2px solid red";
                 phoneCheck = false
             } else if (ph.value.length > 10 || ph.value.length < 10) {
                 pherr.innerHTML = "Phone should be 10 digit"
+                ph.style.border = "2px solid red";
                 phoneCheck = false
             } else if (!phonePattern.test(ph.value)) {
                 pherr.innerHTML = "Invalid phone number"
+                phonePattern.style.border = "2px solid red";
                 phoneCheck = false
             } else {
                 pherr.innerHTML = ""
@@ -120,14 +127,18 @@
             let passpattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%&*]).{8,}$/
 
             if (pass.value == "") {
-                passerr.innerHTML = "password is empty"
+                passerr.innerHTML = "password is required"
+                pass.style.border = "2px solid red";
                 passCheck = false
             } else if (pass.value.length < 8) {
-                passerr.innerHTML = "min 8 character"
+                passerr.innerHTML = "Min 8 character"
                 passCheck = false
-            } else if (!passpattern.test(pass.value)) {
-                passerr.innerHTML = "pls create strong password"
+                pass.style.border = "2px solid red";
+            }
+            else if (!passpattern.test(pass.value)) {
+                alert("Password must include uppercase, lowercase, number and special character (@ # $ % & *)");
                 passCheck = false
+                pass.style.border = "2px solid red";
             }
             else {
                 passerr.innerHTML = ""
@@ -137,13 +148,16 @@
             // cpass--------------------------
 
             if (cpass.value == "") {
-                cpasserr.innerHTML = `confirm password is empty`
+                cpasserr.innerHTML = `confirm password is required`
+                cpass.style.border = "2px solid red";
                 cpassCheck = false
             } else if (cpass.value.length < 8) {
-                cpasserr.innerHTML = "min 8 character"
+                cpasserr.innerHTML = "Min 8 character"
+                cpass.style.border = "2px solid red";
                 cpassCheck = false
             } else if (cpass.value != pass.value) {
-                cpasserr.innerHTML = "password does not Match!!.."
+                cpasserr.innerHTML = "password Does not Match!!.."
+                cpass.style.border = "2px solid red";
                 cpassCheck = false
             } else {
                 cpasserr.innerHTML = ""

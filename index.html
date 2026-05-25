@@ -84,10 +84,12 @@
             let emailpatter = /^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.+-]+\.[a-zA-Z]{2,}$/
 
             if (emailid.value == "") {
-                emailerr.innerHTML = "Email is  Empty"
+                emailerr.innerHTML = "Email is  required"
+                 emailid.style.border = "2px solid red";
                 emailCheck = false;
             } else if (!emailpatter.test(emailid.value)) {
                 emailerr.innerHTML = "Invalid email id"
+                emailpatter.style.border = "2px solid red";
                 emailCheck = false;
             } else {
                 emailerr.innerHTML = ""
@@ -96,10 +98,12 @@
 
 
             if (pass.value == "") {
-                passerr.innerHTML = "Password is  Empty"
+                passerr.innerHTML = "Password is  required"
+                pass.style.border = "2px solid red";
                 passCheck = false;
-            } else if (pass.value.length < 6) {
-                passerr.innerHTML = "Password should be  min 6 charactors"
+            } else if (pass.value.length < 8) {
+                passerr.innerHTML = "Password should be  min 8 charactors"
+                pass.style.border = "2px solid red";
                 passCheck = false;
             } else {
                 passerr.innerHTML = ""
