@@ -199,6 +199,7 @@
                     }
                 })
                 localStorage.setItem("cows", JSON.stringify(updatedcowarr));
+                   editIndex=null
                 Swal.fire({
                     title: "Updated!",
                     text: "Cow Updated Successfully",
@@ -206,7 +207,7 @@
                     timer: 1500,
                     showConfirmButton: false
                 });
-                editIndex=null
+                
             }
             document.getElementById("cowrest").reset();
             displaycows()

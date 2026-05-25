@@ -226,6 +226,7 @@
                     }
                 })
                 localStorage.setItem("Milkentry", JSON.stringify(updatearr))
+                  editIndex=null
                 // alert("update suceesfully")
                 Swal.fire({
                     title: "Updated!",
@@ -234,7 +235,7 @@
                     timer: 1500,
                     showConfirmButton: false
                 });
-                  editIndex=null
+                
             }
 
 
