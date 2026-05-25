@@ -1,152 +1,298 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Add Cow</title>
-        <link rel="icon"
-            href="https://cdn.vectorstock.com/i/500p/75/29/holstein-cow-logo-farm-branding-vector-59997529.jpg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="./css/style.css">
-    </head>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
 
-    <body>
+<body>
 
+    <nav class="navbar navbar-expand-lg topbar">
         <div class="container-fluid">
-            <!-- Top Navbar -->
-            <div class="topbar d-flex justify-content-between align-items-center p-3 ">
-                <h4 class="m-0"> Dairy Farm</h4>
-                <div>
-                    <h5 id="clock" class="m-0"></h5>
-                </div>
 
-                <div class="d-flex align-items-center gap-3">
-                    <span class="admin-name" id="admin">👤 Admin</span>
+            <a class="navbar-brand text-white fw-bold" href="#">
+                Dairy Farm <br>Management</br>
+            </a>
+
+            <!-- THREE DOT / TOGGLE -->
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- NAVBAR CONTENT -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+
+                <ul class="navbar-nav mx-auto gap-3">
+
+                    <li class="nav-item">
+                        <a href="./dashboard.html" class="nav-link ">Dashboard</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="./addcow.html" class="nav-link">Add Cow</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="./milkentery.html" class="nav-link">Milk Entry</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="./expense.html" class="nav-link">Expense</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="./reports.html" class="nav-link">Reports</a>
+                    </li>
+
+                </ul>
+
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+
+                    <h5 id="clock" class="m-0 text-white"></h5>
+
+                    <span class="admin-name" id="admin">Admin</span>
                     <button class="btn btn-light" id="modeBtn">
-                        🌙 Dark
+                        <i class="fa-solid fa-moon"></i>
                     </button>
+
+                    <div class="logout" id="log">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </div>
+
+
                 </div>
+
             </div>
-            <div class="row">
 
-                <div class="col-md-2 sidebar p-3">
-                    <!-- <h3 class="text-center text-white mb-4">🐄 Dairy Farm</h3> -->
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a href="./dashboard.html" class="nav-link active">Dashboard</a></li>
-                        <li class="nav-item"><a href="./addcow.html" class="nav-link">Add Cow</a></li>
-                        <li class="nav-item"><a href="./milkentery.html" class="nav-link">Milk Entry</a></li>
-                        <li class="nav-item"><a href="./expense.html" class="nav-link">Expense</a></li>
-                        <li class="nav-item"><a href="./reports.html" class="nav-link">Reports</a></li>
-                    </ul>
-                </div>
+        </div>
+    </nav>
 
-                <div class="col-md-10 p-4">
+    <div class="container-fluid mt-1">
 
-                    <h2>Add New Cow</h2>
-                    <form id="cowrest">
-                        <div class="cow-form p-4 mt-2">
+        <div class="row g-3">
+
+            <!-- LEFT SIDE INPUT -->
+            <div class="col-lg-4">
+
+                <div class="card shadow border-0 h-">
+                    <div class="card-body">
+
+                        <h3 class="mb-4">Add New Cow</h3>
+
+                        <form id="cowrest" onsubmit="addCow(event)">
+
                             <div class="row g-3">
 
-                                <div class="col-md-4">
+                                <div class="col-12">
                                     <input type="text" id="cowName" class="form-control" placeholder="Cow Name">
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-12">
                                     <select id="cowType" class="form-control">
                                         <option value="">Select Type</option>
                                         <option>Jersey</option>
-                                        <option> HF</option>
-                                        <option> Kangeyam</option>
+                                        <option>HF</option>
+                                        <option>Kangeyam</option>
                                     </select>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-12">
                                     <input type="number" id="age" class="form-control" placeholder="Age">
                                 </div>
 
-                                <div class="col-md-4">
-                                    <input type="number" id="milkCapacity" class="form-control" placeholder="Milk Capacity">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="url" id="cowimg" class="form-control" placeholder="Image URL (optional)">
+                                <div class="col-12">
+                                    <input type="number" id="milkCapacity" class="form-control"
+                                        placeholder="Milk Capacity">
                                 </div>
 
-                                <button type="button" class="btn btn-success w-25 ms-3" onclick="addCow()">
-                                    Add Cow
-                                </button>
+                                <div class="col-12">
+                                    <input type="url" id="cowimg" class="form-control" placeholder="Image URL(Optional)">
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-success w-100">
+                                        Submit Cow
+                                    </button>
+                                </div>
 
                             </div>
 
-                        </div>
-                    </form>
-                    <div class="container">
-                        <div class="row mt-2" id="cowTable"> </div>
+                        </form>
+
                     </div>
                 </div>
+
             </div>
+
+            <!-- RIGHT SIDE CARDS -->
+            <div class="col-lg-8 scroll">
+
+                <div class="row g-3" id="cowTable">
+
+                </div>
+
+            </div>
+
         </div>
 
+    </div>
+    <footer>
+        © 2026 All Rights Reserved | Designed & Developed by SDLC Trichy
+    </footer>
 
-        <script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
 
-            // Add Cow ---------------------------------------------------------------
-            let cows = JSON.parse(localStorage.getItem("cows")) || [];
-            let addCow = () => {
-                let cowName = document.getElementById("cowName")
-                let cowType = document.getElementById("cowType")
-                let age = document.getElementById("age")
-                let milkCapacity = document.getElementById("milkCapacity")
-                let cowimg = document.getElementById("cowimg")
-                let image = cowimg.value
+        let editIndex = null;
+        let getCows = (paras) => {
+            let cows = JSON.parse(localStorage.getItem(paras)) || [];
+            return cows;
+        }
 
-                if (cowName.value == "") {
-                    alert("Add cowName")
-                    return
-                } else if (cowType.value == "") {
-                    alert("Add cowType")
-                    return
-                } else if (age.value == "") {
-                    alert("Add age")
-                    return
-                } else if (milkCapacity.value == "") {
-                    alert("Add milkCapacity")
-                    return
-                } else if (image == "") {
-                    image = "https://cdn.vectorstock.com/i/500p/75/29/holstein-cow-logo-farm-branding-vector-59997529.jpg"
-                    return
-                }
+        // Add Cow ---------------------------------------------------------------
 
 
+        let addCow = (event) => {
+            event.preventDefault();
+            debugger;
+            let cowName = document.getElementById("cowName");
+            let cowType = document.getElementById("cowType");
+            let age = document.getElementById("age");
+            let milkCapacity = document.getElementById("milkCapacity");
+            let cowimg = document.getElementById("cowimg");
 
-                let data = {
-                    cowName: cowName.value,
-                    cowType: cowType.value,
-                    age: age.value,
-                    milkCapacity: milkCapacity.value,
-                    img: image
-                };
+            let image = cowimg.value;
 
-                cows.push(data);
-                console.log(cows);
-                localStorage.setItem("cows", JSON.stringify(cows));
-                document.getElementById("cowrest").reset();
-                displaycows()
+            // VALIDATION
+            if (cowName.value == "") {
+
+                alert("Add cowName");
+                return;
+
             }
-            // Always Show content
 
-            let displaycows = () => {
+            else if (cowType.value == "") {
 
-                let table = document.getElementById("cowTable");
-                if (!table) return;
-                // chatgpt use--if (!table) return;
-                table.innerHTML = "";
+                alert("Add cowType");
+                return;
 
-                cows.forEach((ele) => {
+            }
 
-                    table.innerHTML += `
+            else if (age.value == "") {
+
+                alert("Add age");
+                return;
+
+            }
+
+            else if (milkCapacity.value == "") {
+
+                alert("Add milkCapacity");
+                return;
+
+            }
+
+
+            // AUTO IMAGE BASED ON COW TYPE
+            if (image == "") {
+
+                switch (cowType.value) {
+
+                    case "Jersey":
+
+                        image =
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaL4s25SVc6ydCw4xj0XNmqz5Aa5R3ARUfbQ&s";
+
+                        break;
+
+                    case "HF":
+
+                        image =
+                            "https://alamadhisemenstation.com/wp-content/uploads/2025/01/40522-1024x837.jpg";
+
+                        break;
+
+                    case "Kangeyam":
+
+                        image =
+                            "https://saveindiancows.org/wp-content/uploads/2016/07/Kangayam.jpg";
+
+                        break;
+
+                    default:
+
+                        image =
+                            "https://cdn.vectorstock.com/i/500p/75/29/holstein-cow-logo-farm-branding-vector-59997529.jpg";
+                }
+            }
+
+
+            let data = {
+                cowName: cowName.value,
+                cowType: cowType.value,
+                age: age.value,
+                milkCapacity: milkCapacity.value,
+                img: image
+            };
+            debugger
+
+            if (editIndex == null) {
+                let cows = getCows("cows")
+                cows.push(data);
+                localStorage.setItem("cows", JSON.stringify(cows));
+
+                Swal.fire({
+                    title: "Success!",
+                    text: "Cow Added Successfully",
+                    icon: "success",
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+
+            } else {
+                console.log("update");
+                let cowarr = getCows("cows")
+                let updatedcowarr = cowarr.map((ele, index) => {
+                    if (index == editIndex) {
+                        return data
+                    } else {
+                        return ele;
+                    }
+                })
+                localStorage.setItem("cows", JSON.stringify(updatedcowarr));
+                Swal.fire({
+                    title: "Updated!",
+                    text: "Cow Updated Successfully",
+                    icon: "success",
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            }
+
+            document.getElementById("cowrest").reset();
+            displaycows()
+        }
+        // Always Show content
+
+        let displaycows = () => {
+
+            let table = document.getElementById("cowTable");
+            if (!table) return;
+            // chatgpt use--if (!table) return;
+            table.innerHTML = "";
+            let cows = getCows("cows")
+            cows.forEach((ele, index) => {
+
+                table.innerHTML += `
             <div class="col-md-3 mb-4">
                 <div class="card shadow border-0 cow-card">
                     <img src="${ele.img}"  class="card-img-top cow-img" alt="cow image">
@@ -154,26 +300,128 @@
                         <p class="textcenter"><strong>Name :</strong> ${ele.cowName}</p>
                         <p><strong>cowType :</strong> ${ele.cowType}</p>
                         <p><strong>Age :</strong> ${ele.age} Years</p>
-                        <p><strong>Milk Capacity :</strong> ${ele.milkCapacity}c</p>
+                        <p><strong>Milk Capacity :</strong> ${ele.milkCapacity}/c</p>
+                         <div class="action">
+                            <button class="btn" onclick="updateCow(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button class="btn" onclick="deleteCow(${index})"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>  `
 
-                });
-            };
-            displaycows()
-            // console.log(JSON.parse(localStorage.getItem("cows")));
-            // btn
-            let btn = document.getElementById("modeBtn")
-            btn.addEventListener("click", () => {
-                document.body.classList.toggle("dark");
-                btn.classList.toggle("bg-dark")
-                console.log(btn);
+            });
+        };
+        displaycows()
 
+
+        let deleteCow = (index) => {
+            // console.log(index);
+            Swal.fire({
+                title: "Are you sure?",
+                text: "This Cow will be deleted!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Yes, Delete"
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    let cowarr = getCows("cows")
+                    let filtedcowarr = cowarr.filter((ele, idx) => idx != index)
+                    // console.log(filtedcowarr);
+                    localStorage.setItem("cows", JSON.stringify(filtedcowarr))
+                    displaycows()
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Cow Deleted Successfully",
+                        icon: "success",
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }
+            });
+
+        }
+
+        let updateCow = (index) => {
+            let cowarr = getCows("cows")
+
+            let filtedcowarr = cowarr.filter((ele, idx) => idx == index)
+
+            console.log(filtedcowarr);
+
+            let [obj] = filtedcowarr;
+            console.log(obj);
+            document.getElementById("cowName").value = obj.cowName
+            document.getElementById("cowType").value = obj.cowType
+            document.getElementById("age").value = obj.age
+            document.getElementById("milkCapacity").value = obj.milkCapacity
+            document.getElementById("cowimg").value = obj.img
+            editIndex = index;
+
+        }
+
+        let btn = document.getElementById("modeBtn");
+
+        btn.addEventListener("click", () => {
+
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+
+                btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
+
+            } else {
+                btn.innerHTML = `<i class="fa-solid fa-sun"></i>`
+
+                // btn.innerHTML = "🌙 ";
+            }
+        });
+
+
+        let admin = document.getElementById("admin")
+        let userslist = JSON.parse(localStorage.getItem("userslist")) || []
+        let username = userslist.map((ele) => {
+            return ele.name
+        })
+
+        // console.log(username)
+        admin.innerHTML = username
+
+
+
+        let logout = document.getElementById("log")
+        logout.addEventListener("click", () => {
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You want to logout?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, Logout"
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+
+                    // remove current login user
+                    localStorage.removeItem("currentUser")
+
+                    Swal.fire({
+                        title: "Logged Out!",
+                        icon: "success",
+                        timer: 1500,
+                        showConfirmButton: false
+                    })
+
+                    setTimeout(() => {
+                        window.location.href = "index.html"
+                    }, 1500)
+                }
             })
+        })
 
-        </script>
+    </script>
 
-    </body>
+</body>
 
-    </html>
+</html>

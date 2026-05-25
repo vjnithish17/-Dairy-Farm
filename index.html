@@ -41,7 +41,7 @@
             </div>
             <div class="foot">
                 <h5>Don't have an account? <a href="./formreg.html">Register here</a></h5>
-                <h5><a href="./admin.html" class="login">Admin</a></h5>
+                <!-- <h5><a href="./admin.html" class="login">Admin</a></h5> -->
             </div>
 
 
@@ -139,6 +139,15 @@
             }
 
         }
+
+        let admin = document.getElementById("admin")
+        let userslist = JSON.parse(localStorage.getItem("userslist")) || []
+        let username = userslist.map((ele) => {
+            return ele.name
+        })
+
+        // console.log(username)
+        admin.innerHTML = username
     </script>
 </body>
 

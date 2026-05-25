@@ -5,108 +5,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milk Entry</title>
-    <link rel="icon"
-        href="https://cdn.vectorstock.com/i/500p/75/29/holstein-cow-logo-farm-branding-vector-59997529.jpg">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
-    <div class="container-fluid">
-        <!-- Top Navbar -->
-        <div class="topbar d-flex justify-content-between align-items-center ">
-            <h4 class="m-0">Dairy Farm</h4>
-            <div>
-                <h5 id="clock" class="m-0"></h5>
-            </div>
+    <nav class="navbar navbar-expand-lg topbar">
+        <div class="container-fluid">
 
-            <div class="d-flex align-items-center gap-3">
-                <span class="admin-name" id="admin">👤 Admin</span>
-                <button class="btn btn-light" id="modeBtn">
-                    🌙 Dark
-                </button>
-            </div>
-        </div>
-        <div class="row">
+            <a class="navbar-brand text-white fw-bold" href="#">
+                   Dairy Farm <br>Management</br>
+            </a>
 
-            <div class="col-md-2 sidebar p-3">
-                <!-- <h3 class="text-center text-white mb-4">🐄 Dairy Farm</h3> -->
+            <!-- THREE DOT / TOGGLE -->
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent">
 
-                <ul class="nav flex-column">
-                    <li class="nav-item"><a href="./dashboard.html" class="nav-link active">Dashboard</a></li>
-                    <li class="nav-item"><a href="./addcow.html" class="nav-link">Add Cow</a></li>
-                    <li class="nav-item"><a href="./milkentery.html" class="nav-link">Milk Entry</a></li>
-                    <li class="nav-item"><a href="./expense.html" class="nav-link">Expense</a></li>
-                    <li class="nav-item"><a href="./reports.html" class="nav-link">Reports</a></li>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- NAVBAR CONTENT -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+
+                <ul class="navbar-nav mx-auto gap-3">
+
+                    <li class="nav-item">
+                        <a href="./dashboard.html" class="nav-link ">Dashboard</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="./addcow.html" class="nav-link">Add Cow</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="./milkentery.html" class="nav-link">Milk Entry</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="./expense.html" class="nav-link">Expense</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="./reports.html" class="nav-link">Reports</a>
+                    </li>
+
                 </ul>
+
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+
+                    <h5 id="clock" class="m-0 text-white"></h5>
+
+                    <span class="admin-name" id="admin">Admin</span>
+
+                    <button class="btn btn-light" id="modeBtn">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+
+                    <div class="logout" id="log">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="col-md-10 p-4">
+        </div>
+    </nav>
 
-                <h2> Daily Milk Entry</h2>
+    <div class="container-fluid py-4">
+        <div class="row g-4 align-items-start">
 
-                <div class="cow-form p-4 mt-4">
+            <!-- LEFT SIDE FORM -->
+            <div class="col-lg-4">
+                <div class="cow-form p-4">
+                    <h4 class="mb-4">Daily Milk Entry</h4>
                     <form action="" id="rest">
                         <div class="row g-3">
-
-                            <div class="col-md-4">
+                            <div class="col-12">
                                 <select id="milkCowName" class="form-control">
-                                    <option value="">
-                                        Select Cow
-                                    </option>
+                                    <option value="">Select Cow</option>
                                 </select>
-                                <span id="error"></span>
                             </div>
-
-                            <div class="col-md-3">
+                            <div class="col-6">
                                 <input type="number" id="morning" class="form-control" placeholder="Morning Milk">
                             </div>
-
-                            <div class="col-md-3">
+                            <div class="col-6">
                                 <input type="number" id="evening" class="form-control" placeholder="Evening Milk">
                             </div>
-                            <div class="col-md-3">
-                                <input type="date" id="date" class="form-control" placeholder="Evening Milk">
+                            <div class="col-12">
+                                <input type="date" id="date" class="form-control">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-12">
                                 <input type="number" id="rate" class="form-control" placeholder="Milk Rate">
                             </div>
-                            <div class="col-md-3">
-                                <button type="submit" class="btn btn-success w-100">Add</button>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success w-100">
+                                    Add Entry
+                                </button>
                             </div>
-
                         </div>
                     </form>
                 </div>
+            </div>
 
-                <div class="container">
-                    <table class="table table-striped mt-4">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Date</th>
-                                <th>Cow Name</th>
-                                <th>Morning</th>
-                                <th>Evening</th>
-                                <th>Total</th>
-                                <th>Milk Rate</th>
-                                <th>Income</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="milkTable"></tbody>
-
-                    </table>
+            <!-- RIGHT SIDE TABLE -->
+            <div class="col-lg-8 scroll1">
+                <div class="table-card p-3">
+                    <h4 class="mb-3">Milk Records</h4>
+                    <div class="table-responsive custom-scroll">
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Cow Name</th>
+                                    <th>Morning</th>
+                                    <th>Evening</th>
+                                    <th>Total</th>
+                                    <th>Milk Rate</th>
+                                    <th>Income</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="milkTable"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    <footer>
+        © 2026 All Rights Reserved | Designed & Developed by SDLC Trichy
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
 
         // // milkentry---------------------------------------------------------------------
-
+        let editIndex = null;
         // let mainarray=new Array()
 
         let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || [];
@@ -131,8 +171,6 @@
 
         let form1 = document.getElementById("rest")
 
-
-
         form1.addEventListener("submit", (e) => {
             e.preventDefault()
 
@@ -141,7 +179,7 @@
             let evening = (document.getElementById("evening").value);
             let date = document.getElementById("date").value;
             let rate = document.getElementById("rate").value;
-            let cowerrror = document.getElementById("error")
+            let cowerrror = document.getElementById("error");
 
 
             if (name == "" || morning == "" || evening == "" || date == "" || rate == ``) {
@@ -162,12 +200,42 @@
                 date: date,
                 total: total,
                 rate: rate,
-                
+
             };
-            milkEntries.push(Entry)
+
+            if (editIndex == null) {
+                milkEntries.push(Entry)
+                localStorage.setItem("Milkentry", JSON.stringify(milkEntries))
+                Swal.fire({
+                    title: "Success!",
+                    text: "MilkEntry Added Successfully",
+                    icon: "success",
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            } else {
+                // console.log(uptate);
+                let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || [];
+                let updatearr = milkEntries.map((ele, index) => {
+                    if (index == editIndex) {
+                        return Entry
+                    } else {
+                        return ele;
+                    }
+                })
+                localStorage.setItem("Milkentry", JSON.stringify(updatearr))
+                // alert("update suceesfully")
+                Swal.fire({
+                    title: "Updated!",
+                    text: "MilkEntry Updated Successfully",
+                    icon: "success",
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            }
 
 
-            localStorage.setItem("Milkentry", JSON.stringify(milkEntries))
+
 
 
             document.getElementById("rest").reset();
@@ -184,7 +252,7 @@
             let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || [];
             let table = document.getElementById("milkTable");
             table.innerHTML = "";
-            milkEntries.forEach((milk) => {
+            milkEntries.forEach((milk, index) => {
                 let income = Number(milk.total) * Number(milk.rate)
                 table.innerHTML += `
                  <tr>
@@ -195,6 +263,8 @@
                   <td><b>${milk.total} L</b></td>
                    <td>₹${milk.rate}</td>
                      <td><b>₹${income} </b></td>
+                     <td><button class="btn" onclick="updatemilk(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                     <td><button class="btn" onclick="deletemilk(${index})"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                   </tr>`;
             });
             console.log(table);
@@ -202,13 +272,111 @@
         }
         loadCowOptions();
         showMilk()
-        // btn
-        let btn = document.getElementById("modeBtn")
-        btn.addEventListener("click", () => {
-            document.body.classList.toggle("dark");
-            btn.classList.toggle("bg-dark")
-            console.log(btn);
 
+        let deletemilk = (index) => {
+            // console.log(index);
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "This expense will be deleted!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Yes, Delete"
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || [];
+                    // console.log(milkEntries);
+                    let filterentry = milkEntries.filter((ele, idx) =>
+                        idx != index
+                    )
+                    // console.log(filterentry);
+                    localStorage.setItem("Milkentry", JSON.stringify(filterentry))
+                    showMilk();
+
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Expense Deleted Successfully",
+                        icon: "success",
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }
+            });
+
+        }
+        let updatemilk = (index) => {
+            let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || [];
+            let filterentry = milkEntries.filter((ele, idx) =>
+                idx == index
+            )
+            console.log(filterentry);
+            let [obj] = filterentry
+            document.getElementById("milkCowName").value = obj.name
+            document.getElementById("morning").value = obj.morning
+            document.getElementById("evening").value = obj.evening
+            document.getElementById("date").value = obj.date
+            document.getElementById("rate").value = obj.rate
+            editIndex = index
+        }
+
+        let btn = document.getElementById("modeBtn");
+
+        btn.addEventListener("click", () => {
+
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+
+                 btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
+
+            } else {
+                  btn.innerHTML = `<i class="fa-solid fa-sun"></i>`
+
+                // btn.innerHTML = "🌙 ";
+            }
+        });
+
+
+        let admin = document.getElementById("admin")
+        let userslist = JSON.parse(localStorage.getItem("userslist")) || []
+        let username = userslist.map((ele) => {
+            return ele.name
+        })
+
+        // console.log(username)
+        admin.innerHTML = username
+
+        
+        let logout = document.getElementById("log")
+        logout.addEventListener("click", () => {
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You want to logout?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, Logout"
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+
+                    // remove current login user
+                    localStorage.removeItem("currentUser")
+
+                    Swal.fire({
+                        title: "Logged Out!",
+                        icon: "success",
+                        timer: 1500,
+                        showConfirmButton: false
+                    })
+
+                    setTimeout(() => {
+                        window.location.href = "index.html"
+                    }, 1500)
+                }
+            })
         })
 
 
