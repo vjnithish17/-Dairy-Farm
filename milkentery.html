@@ -257,14 +257,14 @@
                   <td>${milk.name}</td>
                   <td>${milk.morning} L</td>
                   <td>${milk.evening} L</td>
-                  <td><b>${milk.total} L</b></td>
+                  <td>${milk.total} L</td>
                    <td>₹${milk.rate}</td>
-                     <td><b>₹${income} </b></td>
+                     <td>₹${income} </td>
                      <td><button class="btn" onclick="updatemilk(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
                      <td><button class="btn" onclick="deletemilk(${index})"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                   </tr>`;
             });
-            console.log(table);
+            // console.log(table);
 
         }
         loadCowOptions();
@@ -360,7 +360,7 @@
                 if (result.isConfirmed) {
 
                     // remove current login user
-                    localStorage.removeItem("currentUser")
+                    localStorage.removeItem("userlist")
 
                     Swal.fire({
                         title: "Logged Out!",

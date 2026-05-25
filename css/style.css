@@ -311,7 +311,7 @@ body {
 .main-layout {
     height: calc(100vh - 130px);
     overflow: hidden;
-    padding: 15px;
+    /* padding: 15px; */
 }
 
 

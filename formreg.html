@@ -43,7 +43,7 @@
                 <span id="cpsserr"></span>
             </div>
             <div class="form-controlx">
-                <button type="submit">sumit</button>
+                <button type="submit">submit</button>
             </div>
             <div class="foot">You have an account? <a href="./index.html">Login</a></div>
         </form>
@@ -87,7 +87,7 @@
             let mailpattern = /^[a-zA-Z0-9.-_%+]+@[a-zA-Z0-9.+-]+\.[a-zA-Z]{2,}$/
 
             if (mail.value == "") {
-                mailerr.innerHTML = "mail is empty"
+                mailerr.innerHTML = "MailId is empty"
                 mailcheck = false
             } else if (!mailpattern.test(mail.value)) {
                 mailerr.innerHTML = "Invaild mail"
@@ -103,7 +103,7 @@
             let phonePattern = /^[6-9]\d{9}$/
 
             if (ph.value == "") {
-                pherr.innerHTML = "ph is empty"
+                pherr.innerHTML = "phonenumber is empty"
                 phoneCheck = false
             } else if (ph.value.length > 10 || ph.value.length < 10) {
                 pherr.innerHTML = "Phone should be 10 digit"
@@ -120,7 +120,7 @@
             let passpattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%&*]).{8,}$/
 
             if (pass.value == "") {
-                passerr.innerHTML = "pass is empty"
+                passerr.innerHTML = "password is empty"
                 passCheck = false
             } else if (pass.value.length < 8) {
                 passerr.innerHTML = "min 8 character"
@@ -137,7 +137,7 @@
             // cpass--------------------------
 
             if (cpass.value == "") {
-                cpasserr.innerHTML = `cpass is empty`
+                cpasserr.innerHTML = `confirmpassword is empty`
                 cpassCheck = false
             } else if (cpass.value.length < 6) {
                 cpasserr.innerHTML = "min 6 character"

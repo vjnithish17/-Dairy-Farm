@@ -70,7 +70,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid mt-3">
+    <div class="container-fluid ">
         <div class="row g-4 main-layout">
             <!-- LEFT SIDE -->
             <div class="col-lg-4">
@@ -99,7 +99,7 @@
                         </form>
                     </div>
 
-                    <div class="mt-4">
+                    <div class="">
                         <div class="card bg-danger text-white total-card shadow border-0">
                             <div class="card-body d-flex flex-column justify-content-center align-items-center">
                                 <h4>Total Expense</h4>
@@ -141,9 +141,9 @@
         // // expense------------------------------------------------------------
         let editIndex = null;
         let totalex = JSON.parse(localStorage.getItem("expenseamount")) || [];
-
-        let addExpense = (event) => {
-            event.preventDefault()
+        let form1 = document.getElementById("exrest")
+        form1.addEventListener("submit", (e) => {
+            e.preventDefault()
             debugger
             let type = document.getElementById("expenseType").value;
             let amount = (document.getElementById("expenseAmount").value);
@@ -170,6 +170,7 @@
                 amount,
                 date: new Date().toISOString().split("T")[0]
             }
+
             if (editIndex == null) {
                 totalex.push(expenses)
                 localStorage.setItem("expenseamount", JSON.stringify(totalex));
@@ -201,17 +202,16 @@
                     showConfirmButton: false
                 });
             }
-
             document.getElementById("exrest").reset();
             showexpense()
-        }
+        })
         // Always show content
 
         let showexpense = () => {
             let totalex = JSON.parse(localStorage.getItem("expenseamount")) || [];
             let table = document.getElementById("expenseTable");
-            if (!table) return;
             let total = 0;
+
             table.innerHTML = ""
             totalex.forEach((exp, index) => {
                 total += Number(exp.amount);
@@ -220,26 +220,17 @@
             <td>${exp.date}</td>
             <td>${exp.type}</td>
             <td>₹${exp.amount}</td>
-           <td><button class="btn" onclick="updateexpense(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+            <td><button class="btn" onclick="updateexpense(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
              <td><button  class="btn"onclick="deleteexpense(${index})"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
         </tr>`;
             });
             document.getElementById("totalExpense").innerHTML = `₹${total}`;
         };
         showexpense();
-        // debugger
-        // let deleteexpense = (index) => {
-        //     let con = confirm`Are you sure`
-        //     if (con) {
-        //         let totalex = JSON.parse(localStorage.getItem("expenseamount")) || [];
-        //         let expensearr = totalex.filter((ele, idx) => index != idx)
-        //         localStorage.setItem("expenseamount", JSON.stringify(expensearr));
-        //         showexpense()
-        //         alert("Delete Succssfully")
-        //     }
-        // }
-        let deleteexpense = (index) => {
 
+
+
+        let deleteexpense = (index) => {
             Swal.fire({
                 title: "Are you sure?",
                 text: "This expense will be deleted!",
@@ -248,9 +239,8 @@
                 confirmButtonColor: "#d33",
                 confirmButtonText: "Yes, Delete"
             }).then((result) => {
-
                 if (result.isConfirmed) {
-
+                    // ---------------------------------------------------------------------
                     let totalex = JSON.parse(localStorage.getItem("expenseamount")) || [];
 
                     let expensearr = totalex.filter((ele, idx) => idx != index);
@@ -327,7 +317,7 @@
                 if (result.isConfirmed) {
 
                     // remove current login user
-                    localStorage.removeItem("currentUser")
+                    localStorage.removeItem("userlist")
 
                     Swal.fire({
                         title: "Logged Out!",
@@ -335,7 +325,7 @@
                         timer: 1500,
                         showConfirmButton: false
                     })
-
+                    // -----------------------------------------------------
                     setTimeout(() => {
                         window.location.href = "index.html"
                     }, 1500)
