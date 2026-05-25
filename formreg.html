@@ -137,10 +137,10 @@
             // cpass--------------------------
 
             if (cpass.value == "") {
-                cpasserr.innerHTML = `confirmpassword is empty`
+                cpasserr.innerHTML = `confirm password is empty`
                 cpassCheck = false
-            } else if (cpass.value.length < 6) {
-                cpasserr.innerHTML = "min 6 character"
+            } else if (cpass.value.length < 8) {
+                cpasserr.innerHTML = "min 8 character"
                 cpassCheck = false
             } else if (cpass.value != pass.value) {
                 cpasserr.innerHTML = "password does not Match!!.."
