@@ -404,8 +404,85 @@ footer {
     color: red !important
 }
 
+body{
+    overflow-x: hidden;
+}
+
+/* MAIN CONTENT */
+.col-md-10{
+    width: 100%;
+}
+
+/* CHART + SUMMARY */
+.top-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.chart-box{
+    flex: 1;
+    /* min-width: 295px; */
+  
+}
+.summary-box{
+    width: 290px;
+}
 
 
+.table-responsive{
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+
+.card{
+    border: none;
+    border-radius: 15px;
+}
+
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .top-section{
+        flex-direction: column;
+    }
+
+    .summary-box{
+        width: 100%;
+    }
+
+    .chart-box{
+        width: 100%;
+          margin-right: 10px;
+    }
+
+    .table th,
+    .table td{
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    h2{
+        font-size: 22px;
+    }
+
+    .navbar-brand{
+        font-size: 18px;
+    }
+
+    .btn{
+        font-size: 14px;
+    }
+
+    footer{
+        font-size: 13px;
+    }
+}
+
+/* =============================================== */
 
 @media (max-width: 992px) {
      html,
@@ -494,3 +571,96 @@ footer {
         min-width: 600px;
     }
 }
+
+/* print style */
+
+/* =========================
+   PRINT STYLE
+========================= */
+
+@media print {
+
+    body {
+        background: white !important;
+    }
+
+    /* FULL PAGE */
+    html,
+    body {
+        width: 100%;
+        height: auto;
+    }
+
+    /* SHOW ONLY IMPORTANT */
+    nav,
+    footer,
+    .chart-box,
+    .summary-box,
+    .table-responsive {
+        display: block !important;
+    }
+
+    /* HIDE BUTTONS */
+    button,
+    #modeBtn,
+    .logout {
+        display: none !important;
+    }
+
+    /* TABLE */
+    table {
+        width: 100% !important;
+        border-collapse: collapse;
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        border: 1px solid #000 !important;
+        padding: 8px !important;
+        color: black !important;
+    }
+
+    thead {
+        background: #ddd !important;
+    }
+
+    /* CHART */
+    canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* SUMMARY */
+    .summary-box {
+        margin-top: 20px;
+    }
+
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+    }
+
+    /* FOOTER */
+    footer {
+        margin-top: 20px;
+        text-align: center;
+        color: black !important;
+        background: none !important;
+        border-top: 1px solid #000;
+        padding-top: 10px;
+    }
+
+    /* PAGE BREAK AVOID */
+    tr,
+    td,
+    th {
+        page-break-inside: avoid;
+    }
+
+    .table-responsive {
+        overflow: visible !important;
+    }
+}
+
+
