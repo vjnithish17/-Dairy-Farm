@@ -25,8 +25,8 @@
 #modeBtn,
 .logout {
     width: 45px;
-    height: 45px;
-    border-radius: 50%;
+    height: 25px;
+    border-radius: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,7 @@ body {
     background: #f1f4f7;
 }
 
-/* ---------------- CONTAINER ---------------- */
+
 
 .contain {
     flex: 1;
@@ -50,7 +50,7 @@ body {
     overflow: hidden;
 }
 
-/* ---------------- TOPBAR ---------------- */
+
 
 .topbar {
     background: linear-gradient(150deg, #26d1fc, #2e5d7d);
@@ -84,15 +84,6 @@ body {
     color: white !important;
 }
 
-/* ---------------- CLOCK ---------------- */
-
-#clock {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
-
-/* ---------------- MAIN CONTENT ---------------- */
 
 .main-content {
     width: 100%;
@@ -105,8 +96,6 @@ h2 {
     font-weight: 700;
     color: #222;
 }
-
-/* ---------------- CARD ---------------- */
 
 .card-box {
     padding: 22px;
@@ -150,7 +139,6 @@ h2 {
     left: 130%;
 }
 
-/* ---------------- CARD COLORS ---------------- */
 
 .bg-primary {
     background: linear-gradient(135deg, #667eea, #764ba2) !important;
@@ -176,7 +164,6 @@ h2 {
     background: linear-gradient(135deg, #232526, #414345) !important;
 }
 
-/* ---------------- ADMIN ---------------- */
 
 .admin-name {
     color: white;
@@ -263,7 +250,6 @@ table {
     border-radius: 10px;
 }
 
-/* ---------------- FLEX ---------------- */
 
 .flex,
 .expense-content {
@@ -314,7 +300,7 @@ table {
 
 /* ======================================expense============================ */
 
-/* FULL PAGE FIX */
+
 html,
 body {
     height: 100%;
@@ -322,32 +308,30 @@ body {
     /* overflow: hidden; */
 }
 
-/* MAIN LAYOUT HEIGHT */
 .main-layout {
     height: calc(100vh - 130px);
     overflow: hidden;
     padding: 15px;
 }
 
-/* LEFT PANEL */
+
 .left-panel {
     height: 100%;
     background: #fff;
     border-radius: 12px;
 }
 
-/* TOTAL CARD */
 .total-card {
     height: 180px;
     border-radius: 12px;
 }
 
-/* RIGHT SIDE */
+
 .table-side {
     height: 100%;
 }
 
-/* ONLY TABLE SCROLL */
+
 .table-scroll {
     /* height: 100%; */
     overflow-y: auto;
@@ -356,12 +340,12 @@ body {
     /* background: #fff; */
 }
 
-/* TABLE */
+
 table {
     white-space: nowrap;
 }
 
-/* SCROLLBAR */
+
 .table-scroll::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -400,28 +384,9 @@ footer {
 }
 
 
-/* RESPONSIVE */
 
-@media(max-width:992px) {
 
-    html,
-    body {
-        overflow: auto;
-    }
 
-    .top-section {
-        flex-direction: column;
-    }
-
-    .total-side {
-        width: 100%;
-        min-width: 100%;
-    }
-
-    .table-wrapper {
-        height: 400px;
-    }
-}
 
 /* repord=========================== */
 .card {
@@ -440,13 +405,26 @@ footer {
 }
 
 
-/* ---------------- FOOTER ---------------- */
 
-
-
-/* ---------------- RESPONSIVE ---------------- */
 
 @media (max-width: 992px) {
+     html,
+    body {
+        overflow: auto;
+    }
+
+    .top-section {
+        flex-direction: column;
+    }
+
+    .total-side {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .table-wrapper {
+        height: 400px;
+    }
 
     .topbar {
         flex-direction: column;

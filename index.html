@@ -132,22 +132,25 @@
                     }, 2000);
 
                 } else {
-
-                    alert("You are not existing user, please register")
-
+                    Swal.fire({
+                        icon: "warning",
+                        title: "User Not Found",
+                        text: "You are not an existing user, please register",
+                        confirmButtonColor: "#3085d6"
+                    });
                 }
             }
 
         }
 
-        let admin = document.getElementById("admin")
-        let userslist = JSON.parse(localStorage.getItem("userslist")) || []
-        let username = userslist.map((ele) => {
-            return ele.name
-        })
 
-        // console.log(username)
-        admin.innerHTML = username
+        // let admin = document.getElementById("admin")
+        // let userslist = JSON.parse(localStorage.getItem("userslist")) || []
+        // let username = userslist.map((ele) => {
+        //     return ele.name
+        // })
+        // // console.log(username)
+        // admin.innerHTML = username
     </script>
 </body>
 

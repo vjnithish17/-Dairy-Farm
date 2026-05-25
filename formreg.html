@@ -48,7 +48,7 @@
             <div class="foot">You have an account? <a href="./index.html">Login</a></div>
         </form>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let reg = (e) => {
             e.preventDefault()
@@ -149,10 +149,9 @@
                 cpasserr.innerHTML = ""
                 cpassCheck = true
             }
-            debugger
+            // debugger
             // document.getElementById("reset").reset()
-            console.log(nameCheck && mailcheck && phoneCheck && passCheck && cpassCheck);
-
+            // console.log(nameCheck && mailcheck && phoneCheck && passCheck && cpassCheck);
 
             if (nameCheck && mailcheck && phoneCheck && passCheck && cpassCheck) {
                 let userObj = {
@@ -162,18 +161,21 @@
                     password: pass.value,
                     confirmpass: cpass.value
                 }
-                console.log(userObj);
+                // console.log(userObj);
                 userStorage.push(userObj)
-
                 localStorage.setItem("userslist", JSON.stringify(userStorage))
+                Swal.fire({
+                    icon: "success",
+                    title: "Registration Successful ✅",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
 
-                alert("Registration Successful ✅")
                 document.getElementById("reset").reset()
 
                 setTimeout(() => {
                     window.location.href = "index.html"
                 }, 1000)
-
             }
         }
     </script>

@@ -16,7 +16,7 @@
         <div class="container-fluid">
 
             <a class="navbar-brand text-white fw-bold" href="#">
-                   Dairy Farm <br>Management</br>
+                Dairy Farm <br>Management</br>
             </a>
 
             <!-- THREE DOT / TOGGLE -->
@@ -129,7 +129,9 @@
                                     <th>Delete</th>
                                 </tr>
                             </thead>
+
                             <tbody id="milkTable"></tbody>
+
                         </table>
                     </div>
                 </div>
@@ -190,7 +192,6 @@
                 alert(" Not valid rate")
                 return
             }
-
             let total = Number(morning) + Number(evening);
 
             let Entry = {
@@ -213,7 +214,8 @@
                     timer: 1500,
                     showConfirmButton: false
                 });
-            } else {
+            }
+            else {
                 // console.log(uptate);
                 let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || [];
                 let updatearr = milkEntries.map((ele, index) => {
@@ -243,11 +245,6 @@
             showMilk()
         })
 
-        // function addMilkEntry(e) {
-        //     debugger
-
-
-        // }
         function showMilk() {
             let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || [];
             let table = document.getElementById("milkTable");
@@ -329,10 +326,10 @@
 
             if (document.body.classList.contains("dark")) {
 
-                 btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
+                btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
 
             } else {
-                  btn.innerHTML = `<i class="fa-solid fa-sun"></i>`
+                btn.innerHTML = `<i class="fa-solid fa-sun"></i>`
 
                 // btn.innerHTML = "🌙 ";
             }
@@ -348,7 +345,7 @@
         // console.log(username)
         admin.innerHTML = username
 
-        
+
         let logout = document.getElementById("log")
         logout.addEventListener("click", () => {
 
