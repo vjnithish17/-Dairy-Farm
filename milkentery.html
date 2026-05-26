@@ -177,11 +177,11 @@
             e.preventDefault()
 
             let name = document.getElementById("milkCowName").value;
-            let morning = (document.getElementById("morning").value);
-            let evening = (document.getElementById("evening").value);
+            let morning = document.getElementById("morning").value;
+            let evening = document.getElementById("evening").value;
             let date = document.getElementById("date").value;
             let rate = document.getElementById("rate").value;
-            let cowerrror = document.getElementById("error");
+            // let cowerrror = document.getElementById("error");
 
 
             if (name == "" || morning == "" || evening == "" || date == "" || rate == ``) {
@@ -189,11 +189,11 @@
                 return;
             }
             if (Number(rate) <= 35) {
-                alert(" Not valid rate")
+                alert(" Min rate 35 above")
                 return
             }
-            let total = Number(morning) + Number(evening);
 
+            let total = Number(morning) + Number(evening);
             let Entry = {
                 name: name,
                 morning: morning,
@@ -201,7 +201,6 @@
                 date: date,
                 total: total,
                 rate: rate,
-
             };
 
             if (editIndex == null) {
@@ -238,14 +237,10 @@
 
             }
 
-
-
-
-
             document.getElementById("rest").reset();
-
             showMilk()
         })
+
 
         function showMilk() {
 
@@ -254,6 +249,7 @@
                 return `${String(d.getDate()).padStart(2, "0")}-${String(d.getMonth() + 1).padStart(2, "0")}-${d.getFullYear()}`;
             }
             // chatgpt---------------------------------------------------------------
+            
             let milkEntries = JSON.parse(localStorage.getItem("Milkentry")) || [];
             let table = document.getElementById("milkTable");
             table.innerHTML = "";

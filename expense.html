@@ -144,7 +144,7 @@
         let form1 = document.getElementById("exrest")
         form1.addEventListener("submit", (e) => {
             e.preventDefault()
-            debugger
+            // debugger
             let type = document.getElementById("expenseType").value;
             let amount = (document.getElementById("expenseAmount").value);
 
@@ -222,6 +222,7 @@
 
             table.innerHTML = ""
             totalex.forEach((exp, index) => {
+                
                 total += Number(exp.amount);
                 table.innerHTML += `
         <tr>
