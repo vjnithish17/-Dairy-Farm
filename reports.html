@@ -58,7 +58,7 @@
 
                     <h5 id="clock" class="m-0 text-white"></h5>
 
-                    <span class="admin-name" id="admin">Admin</span>
+                    <span class="admin-name" id="admin"></span>
                     <button class="btn btn-light" id="modeBtn">
                         <i class="fa-solid fa-moon"></i>
                     </button>
@@ -169,16 +169,14 @@
                 <td>-</td>
                 <td>₹${exp.amount} </td>
             </tr>
-        `;
+                  `;
             });
-            // console.log(reportExpense);
-            // console.log(totalex);
-            // reportExpense.innerHTML = "₹" + totalex;
 
             let milkEntries = JSON.parse(localStorage.getItem("Milkentry"));
             milkEntries.forEach(exp => {
 
                 let income = Number(exp.total) * Number(exp.rate)
+
                 totalincome += income
                 totalmilk += Number(exp.total)
                 reportExpense.innerHTML += `
@@ -236,7 +234,7 @@
             texp.innerHTML = `₹${expense}`;
             texp.style.color = `#0984b4`
 
-// ==================================---------------------==========================
+            // ==================================---------------------==========================
 
 
             // CHART

@@ -148,6 +148,7 @@
     <script>
 
         // // milkentry---------------------------------------------------------------------
+
         let editIndex = null;
         // let mainarray=new Array()
 
@@ -160,7 +161,6 @@
 
             cows.forEach((cow) => {
                 // console.log(cow);
-
                 select.innerHTML += `
             <option value="${cow.cowName}">
                 ${cow.cowName}
@@ -200,7 +200,7 @@
                 evening: evening,
                 date: date,
                 total: total,
-                rate: rate,
+                rate: rate
             };
 
             if (editIndex == null) {
@@ -224,6 +224,7 @@
                         return ele;
                     }
                 })
+
                 localStorage.setItem("Milkentry", JSON.stringify(updatearr))
                 editIndex = null
                 // alert("update suceesfully")
