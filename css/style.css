@@ -38,7 +38,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #f1f4f7;
+   background: white
 }
 
 
@@ -53,10 +53,10 @@ body {
 
 
 .topbar {
-    background: linear-gradient(150deg, #26d1fc, #2e5d7d);
+    background: linear-gradient(360deg, #26d1fc, #2e5d7d);
     box-shadow: 0 4px 10px #091ab91a;
     backdrop-filter: blur(12px);
-    padding: 18px 25px;
+    padding: 12px 25px;
     color: white;
     flex-wrap: wrap;
     gap: 15px;
@@ -139,31 +139,186 @@ h2 {
     left: 130%;
 }
 
+/* =========================================
+   MILK ENTRY DASHBOARD CARD COLORS
+========================================= */
 
-.bg-primary {
-    background: linear-gradient(135deg, #667eea, #764ba2) !important;
-}
-
-.bg-success {
-    background: linear-gradient(135deg, #11998e, #38ef7d) !important;
-}
-
-.bg-warning {
-    background: linear-gradient(135deg, #f7971e, #ffd200) !important;
-}
-
-.bg-info {
-    background: linear-gradient(135deg, #36d1dc, #5b86e5) !important;
-}
-
-.bg-danger {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
-}
-
+.bg-primary,
+.bg-success,
+.bg-warning,
+.bg-info,
+.bg-danger,
 .bg-dark {
-    background: linear-gradient(135deg, #232526, #414345) !important;
+
+    background-size: 200% 200% !important;
+
+    animation:
+        milkCardGradient 7s ease infinite;
+
+    border: none !important;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
+/* 🌅 Morning Milk */
+.bg-primary {
+    background: linear-gradient(
+        135deg,
+        #4facfe,
+        #2979ff
+    ) !important;
+}
+
+
+/* 🌆 Evening Milk */
+.bg-success {
+    background: linear-gradient(
+        135deg,
+        #20c997,
+        #087f73
+    ) !important;
+}
+
+
+/* 🥛 Total Milk */
+.bg-warning {
+    background: linear-gradient(
+        135deg,
+        #ffc857,
+        #f59f00
+    ) !important;
+}
+
+
+/* 💰 Income */
+.bg-info {
+    background: linear-gradient(
+        135deg,
+        #43cea2,
+        #11998e
+    ) !important;
+}
+
+
+/* 💸 Expense */
+.bg-danger {
+    background: linear-gradient(
+        135deg,
+        #ff8a65,
+        #e85d04
+    ) !important;
+}
+
+
+/* 📈 Profit */
+.bg-dark {
+    background: linear-gradient(
+        135deg,
+        #38d39f,
+        #087f5b
+    ) !important;
+}
+
+/* =========================================
+   SMOOTH ANIMATION
+========================================= */
+
+@keyframes milkCardGradient {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================================
+   PROFESSIONAL HOVER
+========================================= */
+
+.bg-primary:hover,
+.bg-success:hover,
+.bg-warning:hover,
+.bg-info:hover,
+.bg-danger:hover,
+.bg-dark:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(15, 76, 92, 0.18) !important;
+}
+
+
+/* =========================================
+   SUBTLE SHINE
+========================================= */
+
+.bg-primary::after,
+.bg-success::after,
+.bg-warning::after,
+.bg-info::after,
+.bg-danger::after,
+.bg-dark::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.18),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    animation:
+        milkCardShine 7s ease-in-out infinite;
+
+    pointer-events:
+        none;
+}
+
+
+@keyframes milkCardShine {
+
+    0% {
+        left: -120%;
+    }
+
+    45% {
+        left: 150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
 
 .admin-name {
     color: white;
@@ -375,7 +530,7 @@ footer {
 /* FOOTER */
 
 footer {
-    background: #125074;
+      background: linear-gradient(180deg,#26d1fc, #2e5d7d);
     flex-shrink: 0;
     color: #fff;
     text-align: center;
@@ -425,7 +580,7 @@ body{
 .chart-box{
     flex: 1;
     /* min-width: 295px; */
-  
+
 }
 .summary-box{
     width: 290px;

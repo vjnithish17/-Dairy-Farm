@@ -26,7 +26,7 @@
             </div> -->
             <div class="form-controlx">
                 <label for="">Enter the Email</label>
-                <input type="email" id="emailid" placeholder="xxyy@gmail.com">
+                <input type="email" id="emailid" placeholder="xxyy@gmail.com" oninput="clearError(this, 'emailerr')">
                 <span id="emailerr" class="error"></span>
             </div>
 
@@ -92,7 +92,8 @@
                 emailpatter.style.border = "2px solid red";
                 emailCheck = false;
             } else {
-                emailerr.innerHTML = ""
+                emailerr.innerHTML = "";
+                   emailid.style.border = "";
                 emailCheck = true;
             }
 
@@ -106,7 +107,8 @@
                 pass.style.border = "2px solid red";
                 passCheck = false;
             } else {
-                passerr.innerHTML = ""
+                passerr.innerHTML = "";
+                   pass.style.border = "";
                 passCheck = true;
             }
 

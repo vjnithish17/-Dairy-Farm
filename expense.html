@@ -56,11 +56,11 @@
 
                     <h5 id="clock" class="m-0 text-white"></h5>
 
-                    <span class="admin-name" id="admin">Admin</span>
-
+                    <span class="admin-name" id="admin"></span>
+<!--
                     <button class="btn btn-light" id="modeBtn">
                         <i class="fa-solid fa-moon"></i>
-                    </button>
+                    </button> -->
 
                     <div class="logout" id="log">
                         <i class="fa-solid fa-right-from-bracket"></i>
@@ -202,7 +202,7 @@
                     timer: 1500,
                     showConfirmButton: false
                 });
-               
+
             }
             document.getElementById("exrest").reset();
             showexpense()
@@ -222,7 +222,7 @@
 
             table.innerHTML = ""
             totalex.forEach((exp, index) => {
-                
+
                 total += Number(exp.amount);
                 table.innerHTML += `
         <tr>
@@ -278,24 +278,24 @@
             editIndex = index;
 
         }
-        // 
+        //
 
-        let btn = document.getElementById("modeBtn");
+        // let btn = document.getElementById("modeBtn");
 
-        btn.addEventListener("click", () => {
+        // btn.addEventListener("click", () => {
 
-            document.body.classList.toggle("dark");
+        //     document.body.classList.toggle("dark");
 
-            if (document.body.classList.contains("dark")) {
+        //     if (document.body.classList.contains("dark")) {
 
-                btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
+        //         btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
 
-            } else {
-                btn.innerHTML = `<i class="fa-solid fa-sun"></i>`
+        //     } else {
+        //         btn.innerHTML = `<i class="fa-solid fa-sun"></i>`
 
-                // btn.innerHTML = "🌙 ";
-            }
-        });
+        //         // btn.innerHTML = "🌙 ";
+        //     }
+        // });
 
 
 

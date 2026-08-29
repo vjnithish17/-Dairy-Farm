@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -7,113 +7,1103 @@
     font-family: "Gelasio", serif;
 }
 
+/* =========================
+   BODY
+========================= */
+
+html,
 body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
     height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: linear-gradient(135deg, #4f46e5, #7c3aed);    */
+
+    overflow: hidden;
+
+    padding: 15px;
+
     background: url(../img/milk-background-nn4uqvyma4v02ltr.jpg);
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
 }
 
-.foot {
-    margin-top: 9px;
+
+/* =========================
+   DARK GLASS OVERLAY
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.18),
+            rgba(255, 255, 255, 0.05)
+        );
+
+    z-index: 0;
 }
 
-.form-container {
-    width: 100%;
-    max-width: 390px;
+
+/* =========================
+   FLOATING LIGHT
+========================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    top: -180px;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    filter: blur(5px);
+
+    animation: floatingLight 7s ease-in-out infinite alternate;
+
+    z-index: 0;
 }
 
-form {
-    background: #ffffffd7;
-    padding: 20px 35px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px #00000026;
-    /* margin: 15px; */
-}
 
-form h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #111827;
-}
+@keyframes floatingLight {
 
-.form-controlx {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
-}
-
-.form-controlx label {
-    margin-bottom: 6px;
-    font-weight: 600;
-}
-
-.form-controlx input {
-    height: 35px;
-    padding: 0 5px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-
-
-}
-
-.form-controlx input:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
-}
-
-.form-controlx button {
-    height: 35px;
-    border: none;
-    border-radius: 10px;
-    background: #4f46e5;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.form-controlx button:hover {
-    background: #4338ca;
-}
-
-span {
-    color: red;
-    font-size: 13px;
-    min-height: 16px;
-    display: block;
-    margin-top: 4px;
-}
-
-.foot {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.foot h5 {
-    margin: 0;
-}
-
-a {
-    text-decoration: none;
-    color: #4f46e5;
-}
-
-.login {
-    color: #ff075a;
-}
-
-@media(max-width:768px) {
-    form {
-        background: #ffffffd7;
-        padding: 20px 18px;
-        border-radius: 18px;
-        box-shadow: 0 10px 30px #00000026;
-        margin: 15px;
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.4;
     }
 
+    100% {
+        transform: translate(180px, 180px);
+        opacity: 0.8;
+    }
+}
+
+
+
+
+/* =========================
+   CARD CONTAINER
+========================= */
+
+.form-container {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    max-width: 400px;
+
+    padding: 8px;
+
+    animation:
+        premiumCardIn
+        0.8s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================
+   OUTER GLOW BORDER
+========================= */
+
+.form-container::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.85),
+            rgba(99,102,241,0.35),
+            rgba(255,255,255,0.7)
+        );
+
+    opacity: 0;
+
+    filter: blur(12px);
+
+    z-index: -1;
+
+    transition:
+        opacity 0.4s ease;
+}
+
+
+.form-container:hover::before {
+    opacity: 0.75;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.form-container form {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 34px 34px 28px;
+
+    border-radius: 24px;
+
+    /* Premium glass white */
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.97),
+            rgba(248,250,255,0.94)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.95);
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(15,23,42,0.22),
+
+        0 10px 30px
+        rgba(37,99,235,0.08),
+
+        inset 0 1px 0
+        rgba(255,255,255,1);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.45s cubic-bezier(.22,1,.36,1),
+        box-shadow 0.45s ease;
+}
+
+
+/* =========================
+   CARD HOVER
+========================= */
+
+.form-container:hover form {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+
+        0 40px 90px
+        rgba(15,23,42,0.25),
+
+        0 15px 35px
+        rgba(37,99,235,0.12),
+
+        inset 0 1px 0
+        rgba(255,255,255,1);
+}
+
+/* =========================
+   TOP RIGHT LIGHT
+========================= */
+
+.form-container form::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -145px;
+    right: -110px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(99,102,241,0.16),
+            rgba(99,102,241,0.03),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    animation:
+        cardLight
+        5s
+        ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes cardLight {
+
+    from {
+        transform: translate(0,0);
+    }
+
+    to {
+        transform: translate(-15px,15px);
+    }
+}
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.form-container form > * {
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.form-container form h1 {
+
+    color: #101828;
+
+    font-size: 29px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    position: relative;
+}
+
+
+/* Animated underline */
+
+.form-container form h1::after {
+
+    content: "";
+
+    display: block;
+
+    width: 38px;
+    height: 3px;
+
+    margin:
+        9px auto 0;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    box-shadow:
+        0 3px 10px
+        rgba(79,70,229,0.25);
+
+    transition:
+        width 0.35s ease;
+}
+
+
+.form-container:hover form h1::after {
+    width: 65px;
+}
+
+
+/* =========================
+   INPUT GROUP
+========================= */
+
+.form-container .form-controlx {
+
+    margin-bottom: 13px;
+
+    position: relative;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.form-container .form-controlx label {
+    color: #344054;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16vh;
+    margin-left: 6px;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+
+.form-container .form-controlx:focus-within label {
+
+    color: #4f46e5;
+
+    transform:
+        translateX(2px);
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.form-container .form-controlx input {
+
+    height: 45px;
+
+    width: 100%;
+
+    border:
+        1px solid #d8dee9;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,0.85);
+
+    color: #111827;
+
+    padding:
+        0 14px;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        all 0.3s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* Hover */
+
+.form-container .form-controlx input:hover {
+
+    border-color:
+        #aeb8c8;
+
+    background:
+        #ffffff;
+}
+
+
+/* Focus */
+
+.form-container .form-controlx input:focus {
+
+    border-color:
+        #6366f1;
+
+    background:
+        #ffffff;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+
+        0 0 0 3px
+        rgba(99,102,241,0.08),
+
+        0 8px 20px
+        rgba(99,102,241,0.10);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.form-container .form-controlx button {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 46px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #6366f1
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 20px
+        rgba(79,70,229,0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Button glow */
+
+.form-container .form-controlx button::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -3px;
+
+    border-radius: inherit;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    pointer-events: none;
+}
+
+
+/* Shine */
+
+.form-container .form-controlx button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.65s ease;
+}
+
+
+.form-container .form-controlx button:hover::before {
+
+    left: 140%;
+}
+
+
+/* Button hover */
+
+.form-container .form-controlx button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+
+        0 14px 30px
+        rgba(79,70,229,0.35);
+}
+
+
+/* Button active */
+
+.form-container .form-controlx button:active {
+
+    transform:
+        translateY(-1px)
+        scale(0.985);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.form-container .foot {
+
+    margin-top: 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #667085;
+
+    font-size: 11px;
+}
+
+
+.form-container .foot h5 {
+
+    margin: 0;
+
+    font-size: 11px;
+
+    font-weight: 400;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.form-container a {
+
+    color:
+        #4f46e5;
+
+    font-weight:
+        600;
+
+    text-decoration:
+        none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.form-container a:hover {
+
+    color:
+        #7c3aed;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.form-container .error {
+
+    color:
+        #dc2626;
+
+    font-size:
+        10.5px;
+
+    min-height:
+        13px;
+
+    margin-top:
+        3px;
+
+    display:
+        block;
+}
+
+
+/* =========================
+   CARD ENTRANCE
+========================= */
+
+@keyframes premiumCardIn {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(45px)
+            scale(0.92)
+            rotateX(5deg);
+    }
+
+    55% {
+
+        opacity: 1;
+
+        transform:
+            translateY(-7px)
+            scale(1.015)
+            rotateX(0);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotateX(0);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .form-container {
+
+        max-width:
+            390px;
+
+        padding:
+            5px;
+    }
+
+    .form-container form {
+
+        padding:
+            30px 25px 24px;
+
+        border-radius:
+            20px;
+    }
+
+    .form-container form h1 {
+
+        font-size:
+            26px;
+    }
+}
+
+
+/* =========================
+   SMALL HEIGHT
+========================= */
+
+@media (max-height: 650px) {
+
+    .form-container {
+
+        padding:
+            3px;
+    }
+
+    .form-container form {
+
+        padding:
+            22px 28px 18px;
+
+        border-radius:
+            18px;
+    }
+
+    .form-container form h1 {
+
+        font-size:
+            23px;
+
+        margin-bottom:
+            16px;
+    }
+
+    .form-container .form-controlx {
+
+        margin-bottom:
+            7px;
+    }
+
+    .form-container .form-controlx input {
+
+        height:
+            37px;
+    }
+
+    .form-container .form-controlx button {
+
+        height:
+            38px;
+    }
+
+    .form-container .foot {
+
+        margin-top:
+            7px;
+    }
+}
+/* =========================================
+   ERROR MESSAGE - FIX
+========================================= */
+
+.form-controlx > span.error,
+.form-controlx > #nameerr,
+.form-controlx > #mailerr,
+.form-controlx > #pherr,
+.form-controlx > #passerr,
+.form-controlx > #cpsserr,
+#emailerr,
+#passerr {
+
+    color: #dc2626 !important;
+
+    font-size: 11px !important;
+
+    font-weight: 500 !important;
+
+    min-height: 13px !important;
+
+    height: auto !important;
+
+    display: block !important;
+
+    margin-top: 3px !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+
+    line-height: 1.3 !important;
+}
+
+
+/* =========================
+   ERROR INPUT BORDER
+========================= */
+
+.form-controlx input.input-error,
+.form-controlx input:invalid {
+
+    border-color: #ef4444 !important;
+
+    box-shadow:
+        0 0 0 2px rgba(239, 68, 68, 0.08) !important;
+
+}
+
+
+/* Error input focus */
+
+.form-controlx input.input-error:focus {
+
+    border-color: #ef4444 !important;
+
+    box-shadow:
+        0 0 0 3px rgba(239, 68, 68, 0.10) !important;
+
+}
+
+
+/* =========================
+   REMOVE ERROR FROM NORMAL
+   SPAN STYLING
+========================= */
+
+.form-controlx > span:not(.error) {
+
+    color: #dc2626 !important;
+
+    font-size: 11px !important;
+
+    font-weight: 500 !important;
+
+    min-height: 13px !important;
+
+    line-height: 1.3 !important;
+
+    margin-top: 3px !important;
+
+    background: transparent !important;
+}
+
+/* =========================================
+   REGISTER PAGE RESPONSIVE FIX
+   Login page affect aagadhu
+========================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        height: 100dvh;
+        min-height: 100dvh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 15px 10px;
+        align-items: center;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 400px;
+        padding: 5px;
+        margin: auto;
+    }
+
+    /* Register card */
+
+    #reset {
+        width: 100%;
+        padding: 25px 22px 20px;
+        border-radius: 20px;
+    }
+
+    #reset h1 {
+        font-size: 25px;
+        margin-bottom: 18px;
+    }
+
+    #reset .form-controlx {
+        margin-bottom: 7px;
+    }
+
+    #reset .form-controlx label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    #reset .form-controlx input {
+        width: 100%;
+        height: 40px;
+        font-size: 12px;
+        padding: 0 12px;
+    }
+
+    #reset .form-controlx button {
+        height: 41px;
+        margin-top: 2px;
+    }
+
+    #reset span {
+        min-height: 12px;
+        font-size: 10px !important;
+        margin-top: 2px;
+    }
+
+    #reset .foot {
+        margin-top: 7px;
+        font-size: 11px;
+    }
+
+    #reset .foot h5 {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 10px 7px;
+    }
+
+    .form-container {
+        max-width: 370px;
+    }
+
+    #reset {
+        padding: 23px 19px 18px;
+        border-radius: 18px;
+    }
+
+    #reset h1 {
+        font-size: 23px;
+        margin-bottom: 16px;
+    }
+
+    #reset .form-controlx {
+        margin-bottom: 6px;
+    }
+
+    #reset .form-controlx label {
+        font-size: 11px;
+    }
+
+    #reset .form-controlx input {
+        height: 38px;
+        border-radius: 9px;
+    }
+
+    #reset .form-controlx button {
+        height: 39px;
+        border-radius: 9px;
+    }
+
+    #reset span {
+        font-size: 9.5px !important;
+        min-height: 11px;
+    }
+
+    #reset .foot {
+        font-size: 10px;
+    }
+
+    #reset .foot h5 {
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONE
+========================================= */
+
+@media (max-width: 380px) {
+
+    body {
+        padding: 7px 5px;
+    }
+
+    #reset {
+        padding: 18px 15px 15px;
+        border-radius: 16px;
+    }
+
+    #reset h1 {
+        font-size: 21px;
+        margin-bottom: 12px;
+    }
+
+    #reset .form-controlx {
+        margin-bottom: 4px;
+    }
+
+    #reset .form-controlx label {
+        font-size: 10px;
+        margin-bottom: 3px;
+    }
+
+    #reset .form-controlx input {
+        height: 34px;
+        font-size: 11px;
+        padding: 0 10px;
+    }
+
+    #reset .form-controlx button {
+        height: 36px;
+        font-size: 12px;
+    }
+
+    #reset span {
+        font-size: 9px !important;
+        min-height: 10px;
+    }
+
+    #reset .foot {
+        margin-top: 5px;
+    }
+}
+
+
+/* =========================================
+   SMALL HEIGHT PHONE
+========================================= */
+
+@media (max-height: 700px) and (max-width: 768px) {
+
+    body {
+        align-items: flex-start;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    /* .form-container {
+        margin: 0 auto;
+    } */
+
+    #reset {
+        padding-top: 18px;
+        padding-bottom: 14px;
+    }
+
+    #reset h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    #reset .form-controlx {
+        margin-bottom: 4px;
+    }
+
+    #reset .form-controlx input {
+        height: 35px;
+    }
+
+    #reset .form-controlx button {
+        height: 36px;
+    }
+
+    #reset span {
+        min-height: 9px;
+    }
+
+    #reset .foot {
+        margin-top: 4px;
+    }
 }

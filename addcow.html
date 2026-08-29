@@ -42,9 +42,9 @@
                 <div class="d-flex align-items-center gap-3 flex-wrap">
                     <!-- <h5 id="clock" class="m-0 text-white"></h5> -->
                     <span class="admin-name" id="admin"></span>
-                    <button class="btn btn-light" id="modeBtn">
+                    <!-- <button class="btn btn-light" id="modeBtn">
                         <i class="fa-solid fa-moon"></i>
-                    </button>
+                    </button> -->
                     <div class="logout" id="log">
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </div>
@@ -258,7 +258,7 @@
                 if (result.isConfirmed) {
                     let cowarr = getCows("cows")
                     let filtedcowarr = cowarr.filter((ele, idx) => idx != index)
-                        
+
                     localStorage.setItem("cows", JSON.stringify(filtedcowarr))
                     displaycows()
                     Swal.fire({
@@ -291,22 +291,22 @@
 
         }
 
-        let btn = document.getElementById("modeBtn");
+        // let btn = document.getElementById("modeBtn");
 
-        btn.addEventListener("click", () => {
+        // btn.addEventListener("click", () => {
 
-            document.body.classList.toggle("dark");
+        //     document.body.classList.toggle("dark");
 
-            if (document.body.classList.contains("dark")) {
+        //     if (document.body.classList.contains("dark")) {
 
-                btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
+        //         btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
 
-            } else {
-                btn.innerHTML = `<i class="fa-solid fa-sun"></i>`
+        //     } else {
+        //         btn.innerHTML = `<i class="fa-solid fa-sun"></i>`
 
-                // btn.innerHTML = "🌙 ";
-            }
-        });
+        //         // btn.innerHTML = "🌙 ";
+        //     }
+        // });
 
 
         let admin = document.getElementById("admin")
